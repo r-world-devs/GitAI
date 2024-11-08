@@ -9,7 +9,7 @@ set_llm <- function(gitai,
       model = model,
       echo = "none"
     )
-  ) 
+  }
 
   invisible(gitai)
 }
