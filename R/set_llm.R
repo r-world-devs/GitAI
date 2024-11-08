@@ -1,12 +1,15 @@
 #' export
 set_llm <- function(gitai, 
-                    provide = "openai",
+                    provider = "openai",
                     model = "gpt-4o-mini") {
   
-  gitai$llm <- elmer::chat_openai(
-    model = model,
-    echo = "none"
-  )
+  if (provider == "openai") {
+
+    gitai$llm <- elmer::chat_openai(
+      model = model,
+      echo = "none"
+    )
+  ) 
 
   invisible(gitai)
 }
