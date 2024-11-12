@@ -4,7 +4,7 @@
 \alias{set_llm}
 \title{export}
 \usage{
-set_llm(gitai, provide = "openai", model = "gpt-4o-mini")
+set_llm(gitai, provider = "openai", model = "gpt-4o-mini")
 }
 \description{
 export

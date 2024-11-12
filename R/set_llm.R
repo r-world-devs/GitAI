@@ -15,8 +15,8 @@ set_llm <- function(gitai,
 }
 
 #' export
-set_system_prompt <- function(gitai, system_prompt) {
+set_prompt <- function(gitai, system_prompt) {
 
-  gitai$llm$system_prompt <- system_prompt
+  gitai$system_prompt <- system_prompt
   invisible(gitai)
 }

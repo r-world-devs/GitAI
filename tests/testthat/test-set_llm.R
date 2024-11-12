@@ -14,10 +14,15 @@ test_that("setting system prompt", {
 
   my_project <- initialize_project("gitai_test_project")
 
+  expect_error(
+    my_project |> 
+    set_prompt(system_prompt = "You always return only 'Hi there!'")
+  )
+
   my_project <- 
     my_project |> 
     set_llm() |> 
-    set_system_prompt("You always return only 'Hi there!'")
+    set_prompt(system_prompt = "You always return only 'Hi there!'")
 
   expect_equal(
     my_project$llm$system_prompt, "You always return only 'Hi there!'") 
