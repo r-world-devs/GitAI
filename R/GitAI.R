@@ -16,24 +16,27 @@ GitAI <- R6::R6Class(
 
     llm = function(value) {
       if (missing(value)) return(private$.llm)
-        private$.llm <- value
-      },
+      private$.llm <- value
+    },
 
     system_prompt = function(value) {
 
-      if (is.null(private$.llm)) 
+      if (is.null(private$.llm))
         stop(call. = FALSE, "LLM not set. Use set_llm() first.")
-      
+
       if (missing(value)) return(private$.llm$system_prompt)
       private$.llm$system_prompt <- value
+    },
+
+    gitstats = function(value) {
+      if (missing(value)) return(private$.gitstats)
+      private$.gitstats <- value
     }
   ),
 
   private = list(
     .project_id = NULL,
     .llm = NULL,
-
-    # TODO:
     .gitstats = NULL
 
   )
