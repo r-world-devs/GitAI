@@ -4,6 +4,10 @@ GitAI <- R6::R6Class(
     initialize = function(project_id) {
 
       private$.project_id <- project_id
+    },
+
+    process_repos = function() {
+      private$.gitstats
     }
 
   ),
@@ -41,6 +45,16 @@ GitAI <- R6::R6Class(
     file_types = function(value) {
       if (missing(value)) return(private$.file_types)
       private$.file_types <- value
+    },
+
+    repos_metadata = function(value) {
+      if (missing(value)) return(private$.repos_metadata)
+      private$.repos_metadata <- value
+    },
+
+    files_content = function(value) {
+      if (missing(value)) return(private$.files_content)
+      private$.files_content <- value
     }
   ),
 
@@ -49,7 +63,8 @@ GitAI <- R6::R6Class(
     .llm = NULL,
     .gitstats = NULL,
     .file_paths = NULL,
-    .file_types = NULL
-
+    .file_types = NULL,
+    .repos_metadata = NULL,
+    .files_content = NULL
   )
 )
