@@ -31,13 +31,25 @@ GitAI <- R6::R6Class(
     gitstats = function(value) {
       if (missing(value)) return(private$.gitstats)
       private$.gitstats <- value
+    },
+
+    file_paths = function(value) {
+      if (missing(value)) return(private$.file_paths)
+      private$.file_paths <- value
+    },
+
+    file_types = function(value) {
+      if (missing(value)) return(private$.file_types)
+      private$.file_types <- value
     }
   ),
 
   private = list(
     .project_id = NULL,
     .llm = NULL,
-    .gitstats = NULL
+    .gitstats = NULL,
+    .file_paths = NULL,
+    .file_types = NULL
 
   )
 )
