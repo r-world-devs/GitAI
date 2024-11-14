@@ -1,11 +1,18 @@
 #' @name process_repos
 #' @param gitai A GitAI object.
+#' 
+#' @export
+
 process_repos <- function(gitai) {
-  gitstats <- gitai$gitstats |>
-    GitStats::verbose_off()
-  gitai$repos_metadata <- GitStats::get_repos(gitstats)
+
+  gitstats <- gitai$gitstats 
+
+  gitai$repos_metadata <- 
+    GitStats::get_repos(gitstats, 
+                        add_contributors = FALSE)
   file_paths <- gitai$file_paths
   file_types <- gitai$file_types
+
   if (!is.null(file_paths)) {
     files_content <- gitstats |>
       GitStats::get_files_content(
@@ -13,6 +20,7 @@ process_repos <- function(gitai) {
         use_files_structure = FALSE
       )
   }
+
   if (!is.null(file_types)) {
     GitStats::get_files_structure(
       gitstats_object = gitstats,
@@ -21,6 +29,23 @@ process_repos <- function(gitai) {
     )
     files_content <- GitStats::get_files_content(gitstats)
   }
-  gitai$files_content <- files_content
-  invisible(gitai)
+  
+  results <- 
+    files_content$repo_name |> 
+    purrr::map(function(repo_name) {
+      
+      cli::cli_alert_info("Processing repository: {.pkg {repo_name}}")
+      
+      content_to_process <- 
+        files_content |> 
+        dplyr::filter(repo_name == !!repo_name) |> 
+        dplyr::pull(file_content) |> 
+        paste(collapse = "\n\n")
+
+      content_to_process |> nchar()
+      # TODO: process_content() here
+                
+    }) |> purrr::set_names(files_content$repo_name)
+
+  results
 }
