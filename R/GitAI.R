@@ -4,12 +4,7 @@ GitAI <- R6::R6Class(
     initialize = function(project_id) {
 
       private$.project_id <- project_id
-    },
-
-    process_repos = function() {
-      private$.gitstats
     }
-
   ),
 
   active = list(
