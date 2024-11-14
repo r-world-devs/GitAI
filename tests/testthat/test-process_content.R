@@ -31,7 +31,7 @@ test_that("processing a single file content with deterministic output", {
   
   expect_equal(result$text,
                process_content(gitai = my_project, content = test_content)$text)
-
+expect_length(gregexpr("\\.", result$text)[[1]], 1) # expect one period
   expect_equal(result$text,
                process_content(gitai = my_project, content = test_content)$text)
 })
