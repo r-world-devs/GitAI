@@ -1,29 +1,38 @@
 test_that("process_repos() returns results with repo metadata", {
-  my_project <- initialize_project("gitai_test_project")
-  my_project <-
-    my_project |>
+
+  my_project <- 
+    initialize_project("gitai_test_project") |> 
     set_github_repos(
       repos = c("r-world-devs/GitStats", "openpharma/DataFakeR")
     ) |>
     add_files(file_paths = "README.md") |>
-    # set_llm() |>
-    # set_prompt() |>
-    process_repos()
-  expect_s3_class(my_project$repos_metadata, "repos_table")
-  expect_s3_class(my_project$files_content, "files_data")
+    set_llm() |>
+    set_prompt(system_prompt = "Summarize the user content if one sentence.") 
+
+  my_project$gitstats$verbose_off()
+  
+  results <- my_project |> process_repos()
+  
+  results |> is.list() |> expect_true()
+  results |> names() |> expect_equal(c("GitStats", "DataFakeR"))
+  # TODO: check processed content
 })
 
 test_that("process_repos() returns results with repo metadata", {
-  my_project <- initialize_project("gitai_test_project")
-  my_project <-
-    my_project |>
-    set_github_repos(
-      repos = c("r-world-devs/GitStats", "openpharma/DataFakeR")
-    ) |>
+  
+  my_project <- 
+    initialize_project("gitai_test_project") |>
+      set_github_repos(
+        repos = c("r-world-devs/GitStats", "openpharma/DataFakeR")
+      ) |>
     add_files(file_types = "*.md") |>
-    # set_llm() |>
-    # set_prompt() |>
-    process_repos()
-  expect_s3_class(my_project$repos_metadata, "repos_table")
-  expect_s3_class(my_project$files_content, "files_data")
+    set_llm() |>
+    set_prompt(system_prompt = "Summarize the user content if one sentence.") 
+      
+  my_project$gitstats$verbose_off()
+
+  my_project |> process_repos()
+
+  # TODO:
+
 })

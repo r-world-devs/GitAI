@@ -50,12 +50,8 @@ GitAI <- R6::R6Class(
     repos_metadata = function(value) {
       if (missing(value)) return(private$.repos_metadata)
       private$.repos_metadata <- value
-    },
-
-    files_content = function(value) {
-      if (missing(value)) return(private$.files_content)
-      private$.files_content <- value
     }
+
   ),
 
   private = list(
