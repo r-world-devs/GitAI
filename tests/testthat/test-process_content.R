@@ -12,6 +12,8 @@ test_that("processing content have proper output structure", {
   
   result$tokens |> is.numeric() |> expect_true()
   result$output |> is.list() |> expect_true()
+  result$content_nchars |> is.numeric() |> expect_true()
+  result$text |> is.character() |> expect_true()
 })
 
 test_that("processing a single file content with deterministic output", {
@@ -28,10 +30,11 @@ test_that("processing a single file content with deterministic output", {
       result <- process_content(gitai   = my_project,
                                 content = test_content)
   })
+  expect_length(gregexpr("\\.", result$text)[[1]], 1)
   
   expect_equal(result$text,
                process_content(gitai = my_project, content = test_content)$text)
-expect_length(gregexpr("\\.", result$text)[[1]], 1) # expect one period
+
   expect_equal(result$text,
                process_content(gitai = my_project, content = test_content)$text)
 })

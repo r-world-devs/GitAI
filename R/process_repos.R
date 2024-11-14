@@ -41,9 +41,8 @@ process_repos <- function(gitai) {
         dplyr::filter(repo_name == !!repo_name) |> 
         dplyr::pull(file_content) |> 
         paste(collapse = "\n\n")
-
-      content_to_process |> nchar()
-      # TODO: process_content() here
+      
+      process_content(gitai = gitai, content = content_to_process) 
                 
     }) |> purrr::set_names(files_content$repo_name)
 
