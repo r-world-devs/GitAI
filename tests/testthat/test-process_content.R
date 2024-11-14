@@ -12,7 +12,7 @@ test_that("processing content have proper output structure", {
   
   result$tokens |> is.numeric() |> expect_true()
   result$output |> is.list() |> expect_true()
-  result$total_nchar |> is.numeric() |> expect_true()
+  result$content_nchars |> is.numeric() |> expect_true()
   result$text |> is.character() |> expect_true()
 })
 
