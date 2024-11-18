@@ -1,10 +1,11 @@
 Package: GitAI
-Title: What the Package Does (One Line, Title Case)
-Version: 0.0.0.9000
-Authors@R: 
-    person("First", "Last", , "first.last@example.com", role = c("aut", "cre"),
-           comment = c(ORCID = "YOUR-ORCID-ID"))
-Description: What the package does (one paragraph).
+Title: Extracts Knowledge From Git Repositories
+Version: 0.0.0.9001
+Authors@R: c(
+    person("Kamil", "Wais", , "kamil.wais@gmail.com", role = c("aut", "cre")),
+    person("Maciej", "Banas", , "banasmaciek@gmail.com", role = "aut")
+  )
+Description: Scan multiple Git repositories, pull specified files content and process it with Large Language Models. You can summarize the content in specific way, extract information and data, or find answers to your questions about the repositories.
 License: MIT + file LICENSE
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
