@@ -32,14 +32,9 @@ GitAI <- R6::R6Class(
       private$.gitstats <- value
     },
 
-    file_paths = function(value) {
-      if (missing(value)) return(private$.file_paths)
-      private$.file_paths <- value
-    },
-
-    file_types = function(value) {
-      if (missing(value)) return(private$.file_types)
-      private$.file_types <- value
+    files = function(value) {
+      if (missing(value)) return(private$.files)
+      private$.files <- value
     },
 
     repos_metadata = function(value) {
@@ -53,8 +48,7 @@ GitAI <- R6::R6Class(
     .project_id = NULL,
     .llm = NULL,
     .gitstats = NULL,
-    .file_paths = NULL,
-    .file_types = NULL,
+    .files = NULL,
     .repos_metadata = NULL,
     .files_content = NULL
   )
