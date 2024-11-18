@@ -5,8 +5,7 @@ Authors@R: c(
     person("Kamil", "Wais", , "kamil.wais@gmail.com", role = c("aut", "cre")),
     person("Maciej", "Banas", , "banasmaciek@gmail.com", role = "aut")
   )
-Description: Scan multiple Git repositories, pull specified files content,
-, and process it with Large Languge Models. You can summarize the content in specific way, extract information and data, or find answers to your questions about the repositories.
+Description: Scan multiple Git repositories, pull specified files content and process it with Large Language Models. You can summarize the content in specific way, extract information and data, or find answers to your questions about the repositories.
 License: MIT + file LICENSE
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
