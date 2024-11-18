@@ -1,29 +1,14 @@
 #' @name add_files
-#' @param file_paths A character vector of file names.
-#' @param file_types A regular expression.
+#' @param files A character vector of file paths. May be defined with
+#'   regular expression.
 #' @export
-add_files <- function(gitai, file_paths = NULL, file_types = NULL) {
-  if (is.null(file_paths) && is.null(file_types)) {
-    cli::cli_abort("You need to define `file_paths` or `file_types`.")
-  }
-  if (!is.null(file_paths)) {
-    if (!is.character(file_paths)) {
-      cli::cli_abort("`file_paths` must be a character.")
-    } else if (!is_file_path_pattern(file_paths)) {
-      cli::cli_abort(c(
-        "x" = "`file_path` is not a file path pattern."
-      ))
+add_files <- function(gitai, files) {
+  if (!is.null(files)) {
+    if (!is.character(files)) {
+      cli::cli_abort("`files` must be a character.")
     }
-    gitai$file_paths <- file_paths
   }
-  if (!is.null(file_types)) {
-    if (!is.character(file_types)) {
-      cli::cli_abort("`file_types` must be a character.")
-    } else if (!is_file_type_regex(file_types)) {
-      cli::cli_abort("`file_types` is not a regex.")
-    }
-    gitai$file_types <- file_types
-  }
+  gitai$files <- files
   invisible(gitai)
 }
 
