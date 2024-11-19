@@ -4,6 +4,9 @@
 # GitAI <img src="man/figures/logo.png" align="right" height="138" style="float:right; height:138px;"/>
 
 <!-- badges: start -->
+
+[![Codecov test
+coverage](https://codecov.io/gh/r-world-devs/GitAI/graph/badge.svg)](https://app.codecov.io/gh/r-world-devs/GitAI)
 <!-- badges: end -->
 
 The goal of GitAI is to derive knowledge from GitHub or GitLab
