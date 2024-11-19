@@ -23,10 +23,10 @@ jobs:
         with:
           use-public-rspm: true
 
-      - uses: r-lib/actions/setup-r-dependencies@v2
-        with:
-          extra-packages: any::covr, any::xml2
-          needs: coverage
+      - name: Install R dependencies
+        run: |
+          Rscript -e 'install.packages("pak")'
+          Rscript -e 'pak::pak("tidyverse/elmer")'
 
       - name: Test coverage
         run: |
