@@ -28,10 +28,6 @@ jobs:
           extra-packages: any::covr, any::xml2
           needs: coverage
 
-      - name: Install elmer dependency
-        run: pak::pak("tidyverse/elmer")
-        shell: Rscript {0}
-
       - name: Test coverage
         run: |
           cov <- covr::package_coverage(
