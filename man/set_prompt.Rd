@@ -7,9 +7,9 @@
 set_prompt(gitai, system_prompt)
 }
 \arguments{
-\item{system_prompt}{A system prompt.}
+\item{gitai}{A \code{GitAI} object.}
 
-\item{gitati}{A \code{GitAI} object.}
+\item{system_prompt}{A system prompt.}
 }
 \value{
 A \code{GitAI} object.

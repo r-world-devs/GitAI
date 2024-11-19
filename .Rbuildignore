@@ -4,3 +4,7 @@
 ^\.Rproj\.user$
 ^LICENSE\.md$
 ^README\.Rmd$
+^devel
+^docs
+^pkgdown
+^project_metadata.yaml
