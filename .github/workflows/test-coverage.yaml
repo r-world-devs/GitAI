@@ -23,11 +23,6 @@ jobs:
         with:
           use-public-rspm: true
 
-      - name: Install elmer
-        run: |
-          Rscript -e 'install.packages("pak")'
-          Rscript -e 'pak::pak("tidyverse/elmer")'
-
       - uses: r-lib/actions/setup-r-dependencies@v2
         with:
           extra-packages: any::covr, any::xml2

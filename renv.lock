@@ -40,14 +40,14 @@
     },
     "S7": {
       "Package": "S7",
-      "Version": "0.1.1",
+      "Version": "0.2.0",
       "Source": "Repository",
       "Repository": "CRAN",
       "Requirements": [
         "R",
         "utils"
       ],
-      "Hash": "7373b41e159901733e4e167d15394163"
+      "Hash": "5deb66b3ae702137e1f4162c11861e76"
     },
     "askpass": {
       "Package": "askpass",
@@ -138,14 +138,14 @@
     },
     "coro": {
       "Package": "coro",
-      "Version": "1.0.5",
+      "Version": "1.1.0",
       "Source": "Repository",
       "Repository": "CRAN",
       "Requirements": [
         "R",
         "rlang"
       ],
-      "Hash": "63211e5e909f85146985272579ef31e1"
+      "Hash": "4998c8836ff95c90993a4eb8d853df71"
     },
     "cpp11": {
       "Package": "cpp11",
@@ -171,13 +171,13 @@
     },
     "curl": {
       "Package": "curl",
-      "Version": "6.0.0",
+      "Version": "6.0.1",
       "Source": "Repository",
       "Repository": "CRAN",
       "Requirements": [
         "R"
       ],
-      "Hash": "ff51697d9205fe715f29e7171e874c6e"
+      "Hash": "e8ba62486230951fcd2b881c5be23f96"
     },
     "desc": {
       "Package": "desc",
@@ -250,7 +250,7 @@
       "RemoteRepo": "elmer",
       "RemoteUsername": "tidyverse",
       "RemotePkgRef": "tidyverse/elmer",
-      "RemoteSha": "a7b55f39890a544d0d2897ca3a357b6dbfa4e70b",
+      "RemoteSha": "848fd2f0739a73863c86246a3e1f8fd95b73d4ef",
       "Requirements": [
         "R6",
         "S7",
@@ -261,7 +261,7 @@
         "jsonlite",
         "rlang"
       ],
-      "Hash": "516961e91373c587742e99fe3e428d55"
+      "Hash": "7b6008b2091a6d4a93b8e57bef424449"
     },
     "evaluate": {
       "Package": "evaluate",
@@ -373,7 +373,7 @@
       "RemoteRepo": "httr2",
       "RemoteUsername": "r-lib",
       "RemotePkgRef": "r-lib/httr2",
-      "RemoteSha": "bb948b318762ea0c8615954bd0543cb1e11ba791",
+      "RemoteSha": "651665d811e8f88d55c472dae50f3116aaf3da32",
       "Requirements": [
         "R",
         "R6",
@@ -388,7 +388,7 @@
         "vctrs",
         "withr"
       ],
-      "Hash": "7699815ab92184b153735d6e47a6c803"
+      "Hash": "07091206ec270c43fa3913e40536d5ac"
     },
     "jquerylib": {
       "Package": "jquerylib",
