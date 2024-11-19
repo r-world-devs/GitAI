@@ -6,10 +6,17 @@
 <!-- badges: start -->
 <!-- badges: end -->
 
-The goal of GitAI is to derive knowledge about given GitHub and GitLab
-repositories with the use of Large Language Models. Written in tidyverse
-style it allows user to easily setup scope (repositories), content of
-interest (files), LLMs with a prompt and process it.
+The goal of GitAI is to derive knowledge from GitHub or GitLab
+repositories with the use of AI/LLM (Large Language Models). With GitAI
+you can easily:
+
+- set up your project scope (Git repositories),
+- select content of interest (files and file types),
+- choose your LLM backend,
+- define the LLM prompts,
+- process content of all repositories with a single function call.
+
+And all of that in a nice tidyverse style.
 
 ## Installation
 
