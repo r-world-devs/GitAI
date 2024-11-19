@@ -25,9 +25,8 @@ jobs:
 
       - name: Install R dependencies
         run: |
-          Rscript -e 'install.packages("pak")'
+          Rscript -e 'install.packages(c("pak", "covr", "GitStats", "dplyr", "purrr"))'
           Rscript -e 'pak::pak("tidyverse/elmer")'
-          Rscript -e 'install.packages("covr")'
 
       - name: Test coverage
         run: |
