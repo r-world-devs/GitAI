@@ -2,10 +2,16 @@
 % Please edit documentation in R/initialize_project.R
 \name{initialize_project}
 \alias{initialize_project}
-\title{export}
+\title{Initialize a \code{GitAI} project.}
 \usage{
 initialize_project(project_id)
 }
+\arguments{
+\item{project_id}{A character, ID of the project.}
+}
+\value{
+A \code{GitAI} object.
+}
 \description{
-export
+Initialize a \code{GitAI} project.
 }
