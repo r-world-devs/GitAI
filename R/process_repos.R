@@ -1,8 +1,8 @@
+#' Run LLM on repositories content
 #' @name process_repos
 #' @param gitai A GitAI object.
-#'
+#' @return A list.
 #' @export
-
 process_repos <- function(gitai) {
 
   gitstats <- gitai$gitstats

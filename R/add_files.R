@@ -1,6 +1,9 @@
+#' Add files to GitAI object.
 #' @name add_files
+#' @param gitai A GitAI object.
 #' @param files A character vector of file paths. May be defined with
 #'   regular expression.
+#' @return GitAI object.
 #' @export
 add_files <- function(gitai, files) {
   if (!is.null(files)) {
