@@ -2,12 +2,12 @@
 % Please edit documentation in R/set_llm.R
 \name{set_llm}
 \alias{set_llm}
-\title{Set Large Language Model in GitAI}
+\title{Set Large Language Model in \code{GitAI} object.}
 \usage{
 set_llm(gitai, provider = "openai", model = "gpt-4o-mini", seed = NULL, ...)
 }
 \arguments{
-\item{gitai}{A GitAI object.}
+\item{gitai}{A \code{GitAI} object.}
 
 \item{provider}{A LLM provider.}
 
@@ -16,8 +16,8 @@ set_llm(gitai, provider = "openai", model = "gpt-4o-mini", seed = NULL, ...)
 \item{seed}{An integer to make results more reproducible.}
 }
 \value{
-GitAI object.
+A \code{GitAI} object.
 }
 \description{
-Set Large Language Model in GitAI
+Set Large Language Model in \code{GitAI} object.
 }

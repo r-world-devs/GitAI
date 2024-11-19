@@ -2,19 +2,19 @@
 % Please edit documentation in R/add_files.R
 \name{add_files}
 \alias{add_files}
-\title{Add files to GitAI object.}
+\title{Add files to \code{GitAI} object.}
 \usage{
 add_files(gitai, files)
 }
 \arguments{
-\item{gitai}{A GitAI object.}
+\item{gitai}{A \code{GitAI} object.}
 
 \item{files}{A character vector of file paths. May be defined with
 regular expression.}
 }
 \value{
-GitAI object.
+A \code{GitAI} object.
 }
 \description{
-Add files to GitAI object.
+Add files to \code{GitAI} object.
 }

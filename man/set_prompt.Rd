@@ -2,18 +2,18 @@
 % Please edit documentation in R/set_llm.R
 \name{set_prompt}
 \alias{set_prompt}
-\title{Set prompt}
+\title{Set prompt.}
 \usage{
 set_prompt(gitai, system_prompt)
 }
 \arguments{
 \item{system_prompt}{A system prompt.}
 
-\item{gitati}{A GitAI object.}
+\item{gitati}{A \code{GitAI} object.}
 }
 \value{
-GitAI object.
+A \code{GitAI} object.
 }
 \description{
-Set prompt
+Set prompt.
 }

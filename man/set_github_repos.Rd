@@ -2,20 +2,20 @@
 % Please edit documentation in R/set_repos.R
 \name{set_github_repos}
 \alias{set_github_repos}
-\title{Set GitHub repositories in GitAI object.}
+\title{Set GitHub repositories in \code{GitAI} object.}
 \usage{
 set_github_repos(gitai, host = NULL, repos)
 }
 \arguments{
-\item{gitai}{A GitAI object.}
+\item{gitai}{A \code{GitAI} object.}
 
 \item{host}{A character, GitHub host.}
 
 \item{repos}{A character vector or repositories full names.}
 }
 \value{
-GitAI object.
+A \code{GitAI} object.
 }
 \description{
-Set GitHub repositories in GitAI object.
+Set GitHub repositories in \code{GitAI} object.
 }

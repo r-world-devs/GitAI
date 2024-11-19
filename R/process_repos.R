@@ -1,6 +1,6 @@
-#' Run LLM on repositories content
+#' Run LLM on `GitAI` repositories content
 #' @name process_repos
-#' @param gitai A GitAI object.
+#' @param gitai A \code{GitAI} object.
 #' @return A list.
 #' @export
 process_repos <- function(gitai) {

@@ -2,16 +2,16 @@
 % Please edit documentation in R/process_repos.R
 \name{process_repos}
 \alias{process_repos}
-\title{Run LLM on repositories content}
+\title{Run LLM on \code{GitAI} repositories content}
 \usage{
 process_repos(gitai)
 }
 \arguments{
-\item{gitai}{A GitAI object.}
+\item{gitai}{A \code{GitAI} object.}
 }
 \value{
 A list.
 }
 \description{
-Run LLM on repositories content
+Run LLM on \code{GitAI} repositories content
 }

@@ -1,10 +1,10 @@
-#' Set Large Language Model in GitAI
+#' Set Large Language Model in `GitAI` object.
 #' @name set_llm
-#' @param gitai A GitAI object.
+#' @param gitai A \code{GitAI} object.
 #' @param provider A LLM provider.
 #' @param model A LLM model.
 #' @param seed An integer to make results more reproducible.
-#' @return GitAI object.
+#' @return A \code{GitAI} object.
 #' @export
 set_llm <- function(gitai,
                     provider = "openai",
@@ -25,11 +25,11 @@ set_llm <- function(gitai,
   invisible(gitai)
 }
 
-#' Set prompt
+#' Set prompt.
 #' @name set_prompt
-#' @param gitati A GitAI object.
+#' @param gitati A \code{GitAI} object.
 #' @param system_prompt A system prompt.
-#' @return GitAI object.
+#' @return A \code{GitAI} object.
 #' @export
 set_prompt <- function(gitai, system_prompt) {
 

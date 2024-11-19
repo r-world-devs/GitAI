@@ -2,20 +2,20 @@
 % Please edit documentation in R/set_repos.R
 \name{set_gitlab_repos}
 \alias{set_gitlab_repos}
-\title{Set GitLab repositories in GitAI object.}
+\title{Set GitLab repositories in \code{GitAI} object.}
 \usage{
 set_gitlab_repos(gitai, host = NULL, repos)
 }
 \arguments{
-\item{gitai}{A GitAI object.}
+\item{gitai}{A \code{GitAI} object.}
 
 \item{host}{A character, GitLab host.}
 
 \item{repos}{A character vector or repositories full names.}
 }
 \value{
-GitAI object.
+A \code{GitAI} object.
 }
 \description{
-Set GitLab repositories in GitAI object.
+Set GitLab repositories in \code{GitAI} object.
 }

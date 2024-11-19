@@ -2,7 +2,7 @@
 % Please edit documentation in R/initialize_project.R
 \name{initialize_project}
 \alias{initialize_project}
-\title{Initialize GitAI project}
+\title{Initialize a \code{GitAI} project.}
 \usage{
 initialize_project(project_id)
 }
@@ -10,8 +10,8 @@ initialize_project(project_id)
 \item{project_id}{A character, ID of the project.}
 }
 \value{
-GitAI object.
+A \code{GitAI} object.
 }
 \description{
-Initialize GitAI project
+Initialize a \code{GitAI} project.
 }
