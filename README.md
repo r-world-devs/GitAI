@@ -1,7 +1,7 @@
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
-# GitAI
+# GitAI <img src="man/figures/logo.png" align="right" height="138" style="float:right; height:138px;"/>
 
 <!-- badges: start -->
 <!-- badges: end -->
