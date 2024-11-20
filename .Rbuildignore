@@ -9,3 +9,6 @@
 ^pkgdown
 ^project_metadata.yaml
 ^\.github$
+^_pkgdown\.yml$
+^docs$
+^pkgdown$
