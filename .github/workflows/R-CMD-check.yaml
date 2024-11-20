@@ -40,7 +40,7 @@ jobs:
 
       - name: Install R dependencies
         run: |
-          Rscript -e 'install.packages(c("pak", "GitStats", "dplyr", "purrr", "testthat", "xml2", "check"))'
+          Rscript -e 'install.packages(c("pak", "GitStats", "dplyr", "purrr", "testthat", "xml2"))'
           Rscript -e 'pak::pak("tidyverse/elmer")'
 
       - uses: r-lib/actions/check-r-package@v2
