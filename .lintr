@@ -1,0 +1,13 @@
+linters: linters_with_defaults(
+    line_length_linter = line_length_linter(120L),
+    object_usage_linter = NULL,
+    object_length_linter = object_length_linter(45L),
+    object_name_linter = object_name_linter(
+      styles = c("snake_case", "CamelCase", "symbols"),
+      regexes = character()
+      ),
+     cyclocomp_linter = NULL
+  )
+exclusions: list(
+  "tests")
+encoding: "UTF-8"
