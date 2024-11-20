@@ -38,7 +38,7 @@ jobs:
           http-user-agent: ${{ matrix.config.http-user-agent }}
           use-public-rspm: true
 
-      - uses: ././.github/workflows/install_r_dependencies.yaml
+      - uses: ./.github/workflows/install_r_dependencies.yaml
         with:
           additional_packages: "covr, testthat, xml2, check"
 

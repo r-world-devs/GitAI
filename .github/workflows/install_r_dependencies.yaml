@@ -14,6 +14,7 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
+
       - name: Install R dependencies
         run: |
           Rscript -e 'install.packages(c("pak", "GitStats", "dplyr", "purrr"))'
