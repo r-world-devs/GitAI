@@ -20,7 +20,7 @@ jobs:
 
       - uses: ./install_r_dependencies.yaml
         with:
-        additional_packages: "lintr"
+          additional_packages: "lintr"
 
       - name: Lint
         run: lintr::lint_package()

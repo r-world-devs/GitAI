@@ -25,7 +25,7 @@ jobs:
 
       - uses: ./install_r_dependencies.yaml
         with:
-        additional_packages: "covr, testthat, xml2"
+          additional_packages: "covr, testthat, xml2"
 
       - name: Test coverage
         run: |

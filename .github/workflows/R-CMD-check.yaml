@@ -40,7 +40,7 @@ jobs:
 
       - uses: ./install_r_dependencies.yaml
         with:
-        additional_packages: "covr, testthat, xml2, check"
+          additional_packages: "covr, testthat, xml2, check"
 
       - uses: r-lib/actions/check-r-package@v2
         with:
