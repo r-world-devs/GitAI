@@ -14,8 +14,8 @@ test_that("add_files adds file_types to GitAI settings", {
   my_project <- initialize_project("gitai_test_project")
   my_project <-
     my_project |>
-      add_files(files = "*.md")
-    expect_equal("*.md", my_project$files)
+    add_files(files = "*.md")
+  expect_equal("*.md", my_project$files)
 })
 
 test_that("add_files returns error when other than character type is passed", {

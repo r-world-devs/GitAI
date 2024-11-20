@@ -20,6 +20,6 @@ is_file_path_pattern <- function(string) {
     all(!grepl("^\\*?\\.\\w{2,4}$", string))
 }
 
-is_file_type_regex <- function(string){
+is_file_type_regex <- function(string) {
   all(grepl("^\\*?\\.\\w{2,4}$|^.*\\*\\.\\w{2,4}$", string))
 }

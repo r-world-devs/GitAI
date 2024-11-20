@@ -32,7 +32,8 @@ process_repos <- function(gitai) {
 
       process_content(gitai = gitai, content = content_to_process)
 
-    }) |> purrr::set_names(files_content$repo_name)
+    }) |>
+    purrr::set_names(files_content$repo_name)
 
   results
 }
