@@ -18,7 +18,7 @@ jobs:
         with:
           use-public-rspm: true
 
-      - uses: install_r_dependencies.yaml
+      - uses: ./install_r_dependencies.yaml
         with:
         additional_packages: "lintr"
 
