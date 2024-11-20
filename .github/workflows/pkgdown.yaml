@@ -34,7 +34,7 @@ jobs:
 
       - name: Install R dependencies
         run: |
-          Rscript -e 'install.packages(c("pkgdown"))'
+          Rscript -e 'install.packages(c("pkgdown", "remotes"))'
           Rscript -e 'remotes::install_github("r-world-devs/GitAI")'
 
       - name: Build site
