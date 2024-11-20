@@ -23,10 +23,9 @@ jobs:
         with:
           use-public-rspm: true
 
-      - name: Install R dependencies
-        run: |
-          Rscript -e 'install.packages(c("pak", "covr", "GitStats", "dplyr", "purrr", "testthat", "xml2"))'
-          Rscript -e 'pak::pak("tidyverse/elmer")'
+      - uses: install_r_dependencies
+        with:
+        additional_packages: "covr, testthat, xml2"
 
       - name: Test coverage
         run: |

@@ -1,0 +1,21 @@
+name: Install R dependencies
+
+on:
+  workflow_call:
+    inputs:
+      additional_packages:
+        required: false
+        type: string
+        default: ""
+
+jobs:
+  install-r-dependencies:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+      - name: Install R dependencies
+        run: |
+          Rscript -e 'install.packages(c("pak", "GitStats", "dplyr", "purrr"))'
+          Rscript -e 'pak::pak("tidyverse/elmer")'
+          if [ "${{ inputs.additional_packages }}" != "" ]; then Rscript -e 'install.packages(strsplit("${{ inputs.additional_packages }}", ",")[[1]])'; fi
