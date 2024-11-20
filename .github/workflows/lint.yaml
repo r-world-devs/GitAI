@@ -18,9 +18,9 @@ jobs:
         with:
           use-public-rspm: true
 
-      - uses: ./.github/workflows/install_r_dependencies.yaml
-        with:
-          additional_packages: "lintr"
+      - name: Install R dependencies
+        run: install.packages("lintr")
+        shell: Rscript {0}
 
       - name: Lint
         run: lintr::lint_package()

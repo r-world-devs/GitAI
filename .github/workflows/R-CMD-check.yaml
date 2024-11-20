@@ -38,9 +38,10 @@ jobs:
           http-user-agent: ${{ matrix.config.http-user-agent }}
           use-public-rspm: true
 
-      - uses: ./.github/workflows/install_r_dependencies.yaml
-        with:
-          additional_packages: "covr, testthat, xml2, check"
+      - name: Install R dependencies
+        run: |
+          Rscript -e 'install.packages(c("pak", "GitStats", "dplyr", "purrr", "testthat", "xml2", "check"))'
+          Rscript -e 'pak::pak("tidyverse/elmer")'
 
       - uses: r-lib/actions/check-r-package@v2
         with:
