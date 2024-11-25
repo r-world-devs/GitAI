@@ -4,6 +4,7 @@
 #' @param provider A LLM provider.
 #' @param model A LLM model.
 #' @param seed An integer to make results more reproducible.
+#' @param ... Other arguments to pass to `elmer::chat_openai()` function.
 #' @return A \code{GitAI} object.
 #' @export
 set_llm <- function(gitai,
@@ -27,7 +28,7 @@ set_llm <- function(gitai,
 
 #' Set prompt.
 #' @name set_prompt
-#' @param gitati A \code{GitAI} object.
+#' @param gitai A \code{GitAI} object.
 #' @param system_prompt A system prompt.
 #' @return A \code{GitAI} object.
 #' @export

@@ -23,8 +23,8 @@ GitAI <- R6::R6Class(
       if (is.null(private$.llm))
         stop(call. = FALSE, "LLM not set. Use set_llm() first.")
 
-      if (missing(value)) return(private$.llm$system_prompt)
-      private$.llm$system_prompt <- value
+      if (missing(value)) return(private$.llm$get_system_prompt())
+      private$.llm$set_system_prompt(value)
     },
 
     gitstats = function(value) {

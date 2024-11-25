@@ -14,6 +14,8 @@ set_llm(gitai, provider = "openai", model = "gpt-4o-mini", seed = NULL, ...)
 \item{model}{A LLM model.}
 
 \item{seed}{An integer to make results more reproducible.}
+
+\item{...}{Other arguments to pass to \code{elmer::chat_openai()} function.}
 }
 \value{
 A \code{GitAI} object.
