@@ -34,7 +34,8 @@ jobs:
 
       - name: Install R dependencies
         run: |
-          Rscript -e 'install.packages(c("pkgdown", "renv"))'
+          Rscript -e 'install.packages(c("pkgdown", "pak", "renv"))'
+          Rscript -e 'pak::pak("tidyverse/elmer")'
           Rscript -e 'renv::install(".")'
 
       - name: Build site
