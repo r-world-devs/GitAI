@@ -16,7 +16,7 @@ test_that("setting system prompt", {
 
   expect_error(
     my_project |>
-    set_prompt(system_prompt = "You always return only 'Hi there!'")
+      set_prompt(system_prompt = "You always return only 'Hi there!'")
   )
 
   my_project <-
@@ -25,7 +25,8 @@ test_that("setting system prompt", {
     set_prompt(system_prompt = "You always return only 'Hi there!'")
 
   expect_equal(
-    my_project$llm$get_system_prompt(), "You always return only 'Hi there!'")
+    my_project$llm$get_system_prompt(), "You always return only 'Hi there!'"
+  )
 
   expect_equal(
     my_project$llm$chat("Hi"),
