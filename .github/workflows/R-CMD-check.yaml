@@ -39,6 +39,10 @@ jobs:
 
       - uses: r-lib/actions/setup-renv@v2
 
+      - name: Install extra R dependencies
+        run: |
+          Rscript -e 'renv::install("rcmdcheck")'
+
       - uses: r-lib/actions/check-r-package@v2
         with:
           upload-snapshots: true
