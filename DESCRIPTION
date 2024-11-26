@@ -14,7 +14,7 @@ Imports:
     cli (>= 3.4.0),
     elmer,
     GitStats,
-    httr2 (>= 1.0.6.9000),
+    httr2,
     R6,
     dplyr,
     purrr
