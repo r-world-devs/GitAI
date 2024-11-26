@@ -36,7 +36,7 @@ jobs:
 
       - name: Install extra R dependencies
         run: |
-          Rscript -e 'renv::install("pkgdown")'
+          Rscript -e 'renv::install("pkgdown", exclude = "httr2")'
           Rscript -e 'renv::install(".")'
 
       - name: Build site
