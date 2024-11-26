@@ -23,10 +23,11 @@ jobs:
         with:
           use-public-rspm: true
 
-      - name: Install R dependencies
+      - uses: r-lib/actions/setup-renv@v2
+
+      - name: Install extra R dependencies
         run: |
-          Rscript -e 'install.packages(c("pak", "GitStats", "dplyr", "purrr", "covr", "testthat", "xml2"))'
-          Rscript -e 'pak::pak("tidyverse/elmer")'
+          Rscript -e 'renv::install(c("covr", "xml2"))'
 
       - name: Test coverage
         run: |
