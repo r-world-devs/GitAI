@@ -27,7 +27,7 @@ jobs:
 
       - name: Install extra R dependencies
         run: |
-          Rscript -e 'renv::install("covr")'
+          Rscript -e 'renv::install(c("covr", "xml2"))'
 
       - name: Test coverage
         run: |

@@ -37,6 +37,7 @@ jobs:
       - name: Install extra R dependencies
         run: |
           Rscript -e 'renv::install("pkgdown")'
+          Rscript -e 'renv::install(".")'
 
       - name: Build site
         run: pkgdown::build_site_github_pages(new_process = FALSE, install = FALSE)
