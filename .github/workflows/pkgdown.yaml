@@ -36,8 +36,7 @@ jobs:
 
       - name: Install extra R dependencies
         run: |
-          Rscript -e 'renv::install(c("pkgdown", "xml2"))'
-          Rscript -e 'renv::restore(packages = "httr2")'
+          Rscript -e 'renv::install("pkgdown")'
           Rscript -e 'renv::install(".")'
 
       - name: Build site
