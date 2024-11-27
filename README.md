@@ -51,6 +51,6 @@ results <- process_repos(my_project)
 ## Contributors
 A huge thanks to our contributors
 
-<a href="https://github.com//GitAI/graphs/contributors">
+<a href="https://github.com/r-world-devs/GitAI/graphs/contributors">
 <img src="https://contrib.rocks/image?repo=r-world-devs/GitAI"/>
 </a>
