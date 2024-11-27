@@ -2,10 +2,13 @@
 
 export(add_files)
 export(initialize_project)
+export(is_verbose)
 export(process_repos)
 export(set_github_repos)
 export(set_gitlab_repos)
 export(set_llm)
 export(set_prompt)
+export(verbose_off)
+export(verbose_on)
 importFrom(R6,R6Class)
 importFrom(httr2,with_verbosity)

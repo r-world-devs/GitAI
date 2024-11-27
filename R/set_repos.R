@@ -3,11 +3,14 @@
 #' @param gitai A \code{GitAI} object.
 #' @param host A character, GitHub host.
 #' @param repos A character vector or repositories full names.
+#' @param verbose A logical. If \code{FALSE} you won't be getting
+#' additional diagnostic messages.
 #' @return A \code{GitAI} object.
 #' @export
 set_github_repos <- function(gitai,
                              host = NULL,
-                             repos) {
+                             repos,
+                             verbose = is_verbose()) {
   if (is.null(gitai$gitstats)) {
     gitstats <- GitStats::create_gitstats()
   } else {
@@ -17,7 +20,7 @@ set_github_repos <- function(gitai,
     GitStats::set_github_host(
       host = host,
       repos = repos,
-      verbose = FALSE
+      verbose = verbose
     )
   invisible(gitai)
 }
@@ -27,11 +30,14 @@ set_github_repos <- function(gitai,
 #' @param gitai A \code{GitAI} object.
 #' @param host A character, GitLab host.
 #' @param repos A character vector or repositories full names.
+#' @param verbose A logical. If \code{FALSE} you won't be getting
+#' additional diagnostic messages.
 #' @return A \code{GitAI} object.
 #' @export
 set_gitlab_repos <- function(gitai,
                              host = NULL,
-                             repos) {
+                             repos,
+                             verbose = is_verbose()) {
   if (is.null(gitai$gitstats)) {
     gitstats <- GitStats::create_gitstats()
   } else {
@@ -41,7 +47,7 @@ set_gitlab_repos <- function(gitai,
     GitStats::set_gitlab_host(
       host = host,
       repos = repos,
-      verbose = FALSE
+      verbose = verbose
     )
   invisible(gitai)
 }
