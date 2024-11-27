@@ -47,3 +47,10 @@ my_project <- initialize_project("fascinating_project") |>
 # Get the results
 results <- process_repos(my_project)
 ```
+
+## Contributors
+A huge thanks to our contributors
+
+<a href="https://github.com//GitAI/graphs/contributors">
+<img src="https://contrib.rocks/image?repo=r-world-devs/GitAI"/>
+</a>
