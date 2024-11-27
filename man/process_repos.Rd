@@ -4,10 +4,13 @@
 \alias{process_repos}
 \title{Run LLM on \code{GitAI} repositories content}
 \usage{
-process_repos(gitai)
+process_repos(gitai, verbose = is_verbose())
 }
 \arguments{
 \item{gitai}{A \code{GitAI} object.}
+
+\item{verbose}{A logical. If \code{FALSE} you won't be getting
+additional diagnostic messages.}
 }
 \value{
 A list.
