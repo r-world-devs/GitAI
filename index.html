@@ -76,6 +76,7 @@
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va">GitAI</span><span class="op">)</span></span>
 <span><span class="co"># Set up project</span></span>
+<span><span class="fu"><a href="reference/verbose_off.html">verbose_off</a></span><span class="op">(</span><span class="op">)</span></span>
 <span><span class="va">my_project</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/initialize_project.html">initialize_project</a></span><span class="op">(</span><span class="st">"fascinating_project"</span><span class="op">)</span> <span class="op">|&gt;</span></span>
 <span>  <span class="fu"><a href="reference/set_github_repos.html">set_github_repos</a></span><span class="op">(</span>repos <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"r-world-devs/GitStats"</span>, <span class="st">"r-world-devs/GitAI"</span>, <span class="st">"openpharma/DataFakeR"</span><span class="op">)</span><span class="op">)</span> <span class="op">|&gt;</span></span>
 <span>  <span class="fu"><a href="reference/add_files.html">add_files</a></span><span class="op">(</span>files <span class="op">=</span> <span class="st">"README.md"</span><span class="op">)</span> <span class="op">|&gt;</span></span>
@@ -83,7 +84,16 @@
 <span>  <span class="fu"><a href="reference/set_prompt.html">set_prompt</a></span><span class="op">(</span><span class="st">"Write one-sentence summary for a project based on given input."</span><span class="op">)</span></span>
 <span></span>
 <span><span class="co"># Get the results</span></span>
-<span><span class="va">results</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/process_repos.html">process_repos</a></span><span class="op">(</span><span class="va">my_project</span><span class="op">)</span></span></code></pre></div>
+<span><span class="va">results</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/process_repos.html">process_repos</a></span><span class="op">(</span><span class="va">my_project</span><span class="op">)</span></span>
+<span><span class="fu">purrr</span><span class="fu">::</span><span class="fu"><a href="https://purrr.tidyverse.org/reference/map.html" class="external-link">map</a></span><span class="op">(</span><span class="va">results</span>, <span class="op">~</span><span class="va">.</span><span class="op">$</span><span class="va">text</span><span class="op">)</span></span>
+<span><span class="co">#&gt; $GitStats</span></span>
+<span><span class="co">#&gt; [1] "GitStats is an R package that enables users to extract and analyze GitHub and GitLab data, such as repository details, commits, and user activity, in a standardized table format."</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; $GitAI</span></span>
+<span><span class="co">#&gt; [1] "GitAI is an R package designed to harness the power of AI and Large Language Models to extract insights from GitHub or GitLab repositories in a user-friendly, tidyverse style, enabling users to set project scopes, select content of interest, and process repositories with ease."</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; $DataFakeR</span></span>
+<span><span class="co">#&gt; [1] "DataFakeR is an experimental R package designed to generate fake data samples that maintain specified characteristics of original datasets, streamlined through customizable configurations and schema management."</span></span></code></pre></div>
 </div>
 </div>
   </main><aside class="col-md-3"><div class="license">
