@@ -36,7 +36,7 @@
 
     <div class="section level2">
     <h2 id="ref-usage">Usage<a class="anchor" aria-label="anchor" href="#ref-usage"></a></h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">set_github_repos</span><span class="op">(</span><span class="va">gitai</span>, host <span class="op">=</span> <span class="cn">NULL</span>, <span class="va">repos</span><span class="op">)</span></span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">set_github_repos</span><span class="op">(</span><span class="va">gitai</span>, host <span class="op">=</span> <span class="cn">NULL</span>, <span class="va">repos</span>, verbose <span class="op">=</span> <span class="fu"><a href="is_verbose.html">is_verbose</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div class="section level2">
@@ -53,6 +53,11 @@
 
 <dt id="arg-repos">repos<a class="anchor" aria-label="anchor" href="#arg-repos"></a></dt>
 <dd><p>A character vector or repositories full names.</p></dd>
+
+
+<dt id="arg-verbose">verbose<a class="anchor" aria-label="anchor" href="#arg-verbose"></a></dt>
+<dd><p>A logical. If <code>FALSE</code> you won't be getting
+additional diagnostic messages.</p></dd>
 
 </dl></div>
     <div class="section level2">

@@ -7,10 +7,13 @@
 <url><loc>https://r-world-devs.github.io/GitAI/reference/add_files.html</loc></url>
 <url><loc>https://r-world-devs.github.io/GitAI/reference/index.html</loc></url>
 <url><loc>https://r-world-devs.github.io/GitAI/reference/initialize_project.html</loc></url>
+<url><loc>https://r-world-devs.github.io/GitAI/reference/is_verbose.html</loc></url>
 <url><loc>https://r-world-devs.github.io/GitAI/reference/process_repos.html</loc></url>
 <url><loc>https://r-world-devs.github.io/GitAI/reference/set_github_repos.html</loc></url>
 <url><loc>https://r-world-devs.github.io/GitAI/reference/set_gitlab_repos.html</loc></url>
 <url><loc>https://r-world-devs.github.io/GitAI/reference/set_llm.html</loc></url>
 <url><loc>https://r-world-devs.github.io/GitAI/reference/set_prompt.html</loc></url>
+<url><loc>https://r-world-devs.github.io/GitAI/reference/verbose_off.html</loc></url>
+<url><loc>https://r-world-devs.github.io/GitAI/reference/verbose_on.html</loc></url>
 </urlset>
 
