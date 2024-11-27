@@ -38,6 +38,7 @@ Basic workflow could look like:
 ``` r
 library(GitAI)
 # Set up project
+verbose_off()
 my_project <- initialize_project("fascinating_project") |>
   set_github_repos(repos = c("r-world-devs/GitStats", "r-world-devs/GitAI", "openpharma/DataFakeR")) |>
   add_files(files = "README.md") |>
@@ -46,4 +47,13 @@ my_project <- initialize_project("fascinating_project") |>
 
 # Get the results
 results <- process_repos(my_project)
+purrr::map(results, ~.$text)
+#> $GitStats
+#> [1] "GitStats is an R package that enables users to extract and analyze GitHub and GitLab data, such as repository details, commits, and user activity, in a standardized table format."
+#> 
+#> $GitAI
+#> [1] "GitAI is an R package designed to harness the power of AI and Large Language Models to extract insights from GitHub or GitLab repositories in a user-friendly, tidyverse style, enabling users to set project scopes, select content of interest, and process repositories with ease."
+#> 
+#> $DataFakeR
+#> [1] "DataFakeR is an experimental R package designed to generate fake data samples that maintain specified characteristics of original datasets, streamlined through customizable configurations and schema management."
 ```
