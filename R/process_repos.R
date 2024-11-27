@@ -29,13 +29,21 @@ process_repos <- function(gitai, verbose = is_verbose()) {
         cli::cli_alert_info("Processing repository: {.pkg {repo_name}}")
       }
 
-      content_to_process <-
+      filtered_content <-
         files_content |>
-        dplyr::filter(repo_name == !!repo_name) |>
+        dplyr::filter(repo_name == !!repo_name)
+      content_to_process <-
+        filtered_content |>
         dplyr::pull(file_content) |>
         paste(collapse = "\n\n")
 
-      process_content(gitai = gitai, content = content_to_process)
+      result <- process_content(
+        gitai = gitai,
+        content = content_to_process
+      ) |>
+        add_metadata(
+          content = filtered_content
+        )
 
     }) |>
     purrr::set_names(repositories)

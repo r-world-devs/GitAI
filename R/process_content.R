@@ -15,3 +15,12 @@ process_content <- function(gitai, content) {
     text           = turn@text
   )
 }
+
+add_metadata <- function(result, content) {
+  result[["metadata"]] <- list(
+    repo_url = content$repo_url[1],
+    files = paste0(content$file_path, collapse = ", "),
+    timestamp = ""
+  )
+  result
+}
