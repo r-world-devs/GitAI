@@ -21,9 +21,9 @@ process_repos <- function(gitai, verbose = is_verbose()) {
     verbose = verbose
   )
   files_content <- GitStats::get_files_content(gitstats, verbose = verbose)
-
+  repositories <- unique(files_content$repo_name)
   results <-
-    files_content$repo_name |>
+    repositories |>
     purrr::map(function(repo_name) {
       if (verbose) {
         cli::cli_alert_info("Processing repository: {.pkg {repo_name}}")
@@ -38,7 +38,7 @@ process_repos <- function(gitai, verbose = is_verbose()) {
       process_content(gitai = gitai, content = content_to_process)
 
     }) |>
-    purrr::set_names(files_content$repo_name)
+    purrr::set_names(repositories)
 
   results
 }
