@@ -42,9 +42,10 @@ pak::pak("r-world-devs/GitAI")
 
 Basic workflow could look like:
 
-```r
+```{r}
 library(GitAI)
 # Set up project
+verbose_off()
 my_project <- initialize_project("fascinating_project") |>
   set_github_repos(repos = c("r-world-devs/GitStats", "r-world-devs/GitAI", "openpharma/DataFakeR")) |>
   add_files(files = "README.md") |>
@@ -53,4 +54,5 @@ my_project <- initialize_project("fascinating_project") |>
 
 # Get the results
 results <- process_repos(my_project)
+purrr::map(results, ~.$text)
 ```
