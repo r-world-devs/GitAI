@@ -1,4 +1,6 @@
 test_that("set_*_repos creates GitStats object inside GitAI with repos set", {
+  verbose_off()
+
   my_project <- initialize_project("gitai_test_project")
 
   my_project <-

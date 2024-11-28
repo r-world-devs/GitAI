@@ -43,4 +43,6 @@ test_that("processing a single file content with deterministic output", {
 
   expect_equal(result$text,
                process_content(gitai = my_project, content = test_content)$text)
+
+  test_mocker$cache(result)
 })
