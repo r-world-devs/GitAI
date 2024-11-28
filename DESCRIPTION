@@ -16,7 +16,9 @@ Imports:
     elmer,
     GitStats,
     httr2,
+    lubridate,
     R6,
+    S7,
     dplyr,
     purrr
 Suggests: 
