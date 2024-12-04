@@ -7,6 +7,7 @@
 # * https://testthat.r-lib.org/articles/special-files.html
 
 library(testthat)
+library(rlang)
 library(GitAI)
 
 test_check("GitAI")

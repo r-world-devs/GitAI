@@ -22,7 +22,9 @@ Imports:
     R6,
     S7,
     dplyr,
-    purrr
+    purrr,
+    rlang,
+    glue
 Suggests: 
     testthat (>= 3.0.0)
 Config/testthat/edition: 3
