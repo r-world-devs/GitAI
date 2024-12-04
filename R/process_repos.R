@@ -50,24 +50,3 @@ process_repos <- function(gitai, verbose = is_verbose()) {
 
   results
 }
-
-process_repo_content <- function(repo_name) {
-  if (verbose) {
-    cli::cli_alert_info("Processing repository: {.pkg {repo_name}}")
-  }
-
-  filtered_content <- files_content |>
-    dplyr::filter(repo_name == !!repo_name)
-  content_to_process <- filtered_content |>
-    dplyr::pull(file_content) |>
-    paste(collapse = "\n\n")
-
-  result <- gitai |>
-    process_content(
-      content = content_to_process
-    ) |>
-    add_metadata(
-      content = filtered_content
-    )
-
-}
