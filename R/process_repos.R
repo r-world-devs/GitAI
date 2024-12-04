@@ -9,10 +9,11 @@ process_repos <- function(gitai, verbose = is_verbose()) {
 
   gitstats <- gitai$gitstats
 
-  gitai$repos_metadata <-
-    GitStats::get_repos(gitstats,
-                        add_contributors = FALSE,
-                        verbose = verbose)
+  gitai$repos_metadata <- GitStats::get_repos(
+      gitstats,
+      add_contributors = FALSE,
+      verbose = verbose
+    )
 
   GitStats::get_files_structure(
     gitstats_object = gitstats,
@@ -22,31 +23,51 @@ process_repos <- function(gitai, verbose = is_verbose()) {
   )
   files_content <- GitStats::get_files_content(gitstats, verbose = verbose)
   repositories <- unique(files_content$repo_name)
-  results <-
-    repositories |>
-    purrr::map(function(repo_name) {
-      if (verbose) {
-        cli::cli_alert_info("Processing repository: {.pkg {repo_name}}")
-      }
+  process_repo_content <- function(repo_name) {
+    if (verbose) {
+      cli::cli_alert_info("Processing repository: {.pkg {repo_name}}")
+    }
 
-      filtered_content <-
-        files_content |>
-        dplyr::filter(repo_name == !!repo_name)
-      content_to_process <-
-        filtered_content |>
-        dplyr::pull(file_content) |>
-        paste(collapse = "\n\n")
+    filtered_content <- files_content |>
+      dplyr::filter(repo_name == !!repo_name)
+    content_to_process <- filtered_content |>
+      dplyr::pull(file_content) |>
+      paste(collapse = "\n\n")
 
-      result <- process_content(
-        gitai = gitai,
+    result <- gitai |>
+      process_content(
         content = content_to_process
       ) |>
-        add_metadata(
-          content = filtered_content
-        )
+      add_metadata(
+        content = filtered_content
+      )
 
-    }) |>
+  }
+
+  results <- repositories |>
+    purrr::map(process_repo_content) |>
     purrr::set_names(repositories)
 
   results
+}
+
+process_repo_content <- function(repo_name) {
+  if (verbose) {
+    cli::cli_alert_info("Processing repository: {.pkg {repo_name}}")
+  }
+
+  filtered_content <- files_content |>
+    dplyr::filter(repo_name == !!repo_name)
+  content_to_process <- filtered_content |>
+    dplyr::pull(file_content) |>
+    paste(collapse = "\n\n")
+
+  result <- gitai |>
+    process_content(
+      content = content_to_process
+    ) |>
+    add_metadata(
+      content = filtered_content
+    )
+
 }

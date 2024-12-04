@@ -1,4 +1,4 @@
-#' @importFrom R6 R6Class
-#' @importFrom httr2 with_verbosity
-#' @importFrom lubridate as_datetime
-NULL
+#' Derive knowledge from GitHub or GitLab repositories with the use of AI/LLM
+#'
+#' @name GitAI-package
+"_PACKAGE"

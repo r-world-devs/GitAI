@@ -10,8 +10,8 @@ test_that("metadata is added to content", {
     api_url = c("test_URL", "test_URL")
   )
   testthat::with_mocked_bindings({
-    result_with_metadata <-
-      test_mocker$use("result") |>
+    result_with_metadata <- "result" |>
+      test_mocker$use() |>
       add_metadata(
         content = mocked_files_content
       )
