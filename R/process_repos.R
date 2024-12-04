@@ -10,10 +10,10 @@ process_repos <- function(gitai, verbose = is_verbose()) {
   gitstats <- gitai$gitstats
 
   gitai$repos_metadata <- GitStats::get_repos(
-      gitstats,
-      add_contributors = FALSE,
-      verbose = verbose
-    )
+    gitstats,
+    add_contributors = FALSE,
+    verbose = verbose
+  )
 
   GitStats::get_files_structure(
     gitstats_object = gitstats,
@@ -41,7 +41,6 @@ process_repos <- function(gitai, verbose = is_verbose()) {
       add_metadata(
         content = filtered_content
       )
-
   }
 
   results <- repositories |>
