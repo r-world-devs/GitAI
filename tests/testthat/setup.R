@@ -1,12 +1,17 @@
 test_mocker <- Mocker$new()
 
 # Override other methods when needed in the future
-ChatMocked <- elmer:::Chat
-ChatMocked$public_methods$chat <- function(..., echo = NULL) {
-  if (self$get_system_prompt() == "You always return only 'Hi there!'") {
-    return("Hi there!")
-  }
-}
+ChatMocked <- R6::R6Class(
+  "ChatMocked",
+  inherit = elmer:::Chat,
+  public = list(
+    chat = function(..., echo = NULL) {
+      if (self$get_system_prompt() == "You always return only 'Hi there!'") {
+        return("Hi there!")
+      }
+    }
+  )
+)
 
 # This method allows to skip original checks (e.g. for api or other args structure) and returns
 # object of class ChatMocked that we can modify for our testing purposes.

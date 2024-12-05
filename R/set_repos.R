@@ -20,15 +20,9 @@ set_github_repos <- function(gitai,
     GitStats::set_github_host(
       host = host,
       repos = repos,
-      token = get_github_pat(),
       verbose = verbose
     )
   invisible(gitai)
-}
-
-get_github_pat <- function() {
-  key_get <- get("key_get", envir = asNamespace("elmer"))
-  key_get("GITHUB_PAT")
 }
 
 #' Set GitLab repositories in `GitAI` object.
@@ -53,13 +47,7 @@ set_gitlab_repos <- function(gitai,
     GitStats::set_gitlab_host(
       host = host,
       repos = repos,
-      token = get_gitlab_pat(),
       verbose = verbose
     )
   invisible(gitai)
-}
-
-get_gitlab_pat <- function() {
-  key_get <- get("key_get", envir = asNamespace("elmer"))
-  key_get("GITLAB_PAT")
 }
