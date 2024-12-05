@@ -2,20 +2,21 @@
 % Please edit documentation in R/set_llm.R
 \name{set_llm}
 \alias{set_llm}
+\alias{get_llm_defaults}
 \title{Set Large Language Model in \code{GitAI} object.}
 \usage{
-set_llm(gitai, provider = "openai", model = "gpt-4o-mini", seed = NULL, ...)
+set_llm(gitai, provider = "openai", ...)
+
+get_llm_defaults(provider)
 }
 \arguments{
 \item{gitai}{A \code{GitAI} object.}
 
-\item{provider}{A LLM provider.}
+\item{provider}{Name of LLM provider, a string. Results with setting up LLM using
+\code{elmer::chat_<provider>} function.}
 
-\item{model}{A LLM model.}
-
-\item{seed}{An integer to make results more reproducible.}
-
-\item{...}{Other arguments to pass to \code{elmer::chat_openai()} function.}
+\item{...}{Other arguments to pass to corresponding \code{elmer::chat_<provider>} function.
+Please use \link{get_llm_defaults} to get default model arguments.}
 }
 \value{
 A \code{GitAI} object.

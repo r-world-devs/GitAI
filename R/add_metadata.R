@@ -17,11 +17,15 @@ add_metadata <- function(result, content) {
 
 get_repo_date <- S7::new_generic("get_repo_date", "repo_api_url")
 
-github_repo <- S7::new_class("github_repo",
-                             properties = list(repo = S7::class_character))
+github_repo <- S7::new_class(
+  "github_repo",
+  properties = list(repo = S7::class_character)
+)
 
-gitlab_repo <- S7::new_class("gitlab_repo",
-                             properties = list(repo = S7::class_character))
+gitlab_repo <- S7::new_class(
+  "gitlab_repo",
+  properties = list(repo = S7::class_character)
+)
 
 S7::method(get_repo_date, github_repo) <- function(repo_api_url) {
   repo_data <- get_response(repo_api_url@repo)
@@ -29,8 +33,10 @@ S7::method(get_repo_date, github_repo) <- function(repo_api_url) {
 }
 
 S7::method(get_repo_date, gitlab_repo) <- function(repo_api_url) {
-  repo_data <- get_response(endpoint = repo_api_url@repo,
-                            token = Sys.getenv("GITLAB_PAT"))
+  repo_data <- get_response(
+    endpoint = repo_api_url@repo,
+    token = Sys.getenv("GITLAB_PAT")
+  )
   lubridate::as_datetime(repo_data$last_activity_at)
 }
 
