@@ -1,4 +1,4 @@
-test_that("[integration test] set_*_repos creates GitStats object inside GitAI with repos set", {
+test_that("set_*_repos creates GitStats object inside GitAI with repos set", {
   verbose_off()
   my_project <- initialize_project("gitai_test_project")
 

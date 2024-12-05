@@ -1,4 +1,4 @@
-test_that("[integration test] processing content have proper output structure", {
+test_that("processing content have proper output structure", {
   my_project <- initialize_project("gitai_test_project") |>
     set_llm() |>
     set_prompt(system_prompt = "Say 'Hi there!' only and nothing else.")
@@ -11,7 +11,7 @@ test_that("[integration test] processing content have proper output structure", 
   expect_true(is.character(result$text))
 })
 
-test_that("[integration test] processing a single file content with deterministic output", {
+test_that("processing a single file content with deterministic output", {
   my_project <- initialize_project("gitai_test_project") |>
     set_llm(seed = 1014, api_args = list(temperature = 0)) |>
     set_prompt(system_prompt = "Summarize provided conent with one, short sentence.")

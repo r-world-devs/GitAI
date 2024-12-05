@@ -1,4 +1,4 @@
-test_that("[integration test] process_repos() returns results with repo metadata", {
+test_that("process_repos() returns results with repo metadata", {
   verbose_off()
 
   my_project <- initialize_project("gitai_test_project") |>
