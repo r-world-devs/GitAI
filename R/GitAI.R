@@ -18,6 +18,11 @@ GitAI <- R6::R6Class(
       private$.llm <- value
     },
 
+    db = function(value) {
+      if (missing(value)) return(private$.db)
+      private$.db <- value
+    },
+
     system_prompt = function(value) {
 
       if (is.null(private$.llm))
@@ -47,6 +52,7 @@ GitAI <- R6::R6Class(
   private = list(
     .project_id = NULL,
     .llm = NULL,
+    .db = NULL,
     .gitstats = NULL,
     .files = NULL,
     .repos_metadata = NULL,

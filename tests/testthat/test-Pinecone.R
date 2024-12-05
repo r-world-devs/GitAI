@@ -1,8 +1,8 @@
 test_that("getting index metadata", {
 
   db <- Pinecone$new(
-    project_id = "test_project_id", 
-    index_id = "gitai"
+    namespace = "test_project_id", 
+    index  = "gitai"
   )
   
   index <- db$get_index_metadata()
@@ -11,17 +11,23 @@ test_that("getting index metadata", {
 
 test_that("getting embeddings", {
 
-  db <- Pinecone$new(project_id = "test_project_id", index_id = "gitai")
+  db <- Pinecone$new(
+    namespace = "test_project_id", 
+    index  = "gitai"
+  )
   
   test_text <- "Apple is a popular fruit known for its sweetness and crisp texture."
-  embeddings <- db$get_embeddings(text = test_text)
+  embeddings <- db$.__enclos_env__$private$.get_embeddings(text = test_text)
 
   length(embeddings) |> expect_equal(1024)
 })
 
 test_that("writting records", {
   
-  db <- Pinecone$new(project_id = "test_project_id", index_id = "gitai")
+  db <- Pinecone$new(
+    namespace = "test_project_id", 
+    index = "gitai"
+  )
   
   test_texts <- c(
     "Apple is a popular fruit known for its sweetness and crisp texture.",
@@ -34,12 +40,9 @@ test_that("writting records", {
 
   for (i in seq_along(test_texts)) {
     
-    embeddings <- db$get_embeddings(text = test_texts[i])
-
     result <- db$write_record(
       id = paste0("id_", i),
-      embeddings = embeddings,
-      metadata = list(text = test_texts[i])
+      text = test_texts[i]
     ) 
 
     result$upsertedCount |> expect_equal(1)
@@ -50,17 +53,26 @@ test_that("finding records", {
 
   Sys.sleep(3)
   
-  db <- Pinecone$new(project_id = "test_project_id", index_id = "gitai")
+  db <- Pinecone$new(
+    namespace = "test_project_id",
+    index = "gitai"
+  )
 
-  result <- db$find_records(query = "Tell me about Apple Tech computer company.", top_k = 1)
+  result <- db$find_records(
+    query = "Tell me about Apple Tech computer company.", 
+    top_k = 1
+  )
 
   length(result) |> expect_equal(1)
   result[[1]]$id |> expect_equal("id_2")
   result[[1]]$metadata$text |> is.character() |> expect_true()
   result[[1]]$score |> is.numeric() |> expect_true()
 
-  result_2 <- db$find_records(query = "Tell me about apple fruit.") 
-
+  result_2 <- db$find_records(
+    query = "Tell me about apple fruit.", 
+    top_k = 1
+  )
+  
   expect_false(result_2[[1]]$id == result[[1]]$id)
- })
+})
 
