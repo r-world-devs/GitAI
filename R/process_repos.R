@@ -5,7 +5,10 @@
 #' additional diagnostic messages.
 #' @return A list.
 #' @export
-process_repos <- function(gitai, verbose = is_verbose()) {
+process_repos <- function(
+  gitai, 
+  verbose = is_verbose()
+) {
 
   gitstats <- gitai$gitstats
 
@@ -28,25 +31,36 @@ process_repos <- function(gitai, verbose = is_verbose()) {
       if (verbose) {
         cli::cli_alert_info("Processing repository: {.pkg {repo_name}}")
       }
-
-      filtered_content <-
-        files_content |>
+      
+      filtered_content <- files_content |>
         dplyr::filter(repo_name == !!repo_name)
-      content_to_process <-
-        filtered_content |>
+      
+      content_to_process <- filtered_content |>
         dplyr::pull(file_content) |>
-        paste(collapse = "\n\n")
-
+          paste(collapse = "\n\n")
+        
+      if (verbose) {
+        cli::cli_alert_info("Processing content with LLM...")
+      }
       result <- process_content(
         gitai = gitai,
         content = content_to_process
       ) |>
-        add_metadata(
-          content = filtered_content
+        add_metadata(content = filtered_content)
+      
+      if (!is.null(gitai$db)) {
+        if (verbose) {
+          cli::cli_alert_info("Writing to database...")
+        }
+        gitai$db$write_record(
+          id = repo_name,
+          text = result$text,
+          metadata = result$metadata
         )
-
+      }
+      result
     }) |>
     purrr::set_names(repositories)
 
-  results
+  invisible(results)
 }
