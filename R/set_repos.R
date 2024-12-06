@@ -1,15 +1,14 @@
 #' Set GitHub repositories in `GitAI` object.
 #' @name set_github_repos
 #' @param gitai A \code{GitAI} object.
-#' @param host A character, GitHub host.
-#' @param repos A character vector or repositories full names.
-#' @param verbose A logical. If \code{FALSE} you won't be getting
-#' additional diagnostic messages.
+#' @param ... Parameters to pass to \code{\link[GitStats]{set_github_host}}
+#'   function.
+#' @param verbose A logical. If \code{FALSE} you won't be getting additional
+#'   diagnostic messages.
 #' @return A \code{GitAI} object.
 #' @export
 set_github_repos <- function(gitai,
-                             host = NULL,
-                             repos,
+                             ... = ...,
                              verbose = is_verbose()) {
   if (is.null(gitai$gitstats)) {
     gitstats <- GitStats::create_gitstats()
@@ -18,8 +17,7 @@ set_github_repos <- function(gitai,
   }
   gitai$gitstats <- gitstats |>
     GitStats::set_github_host(
-      host = host,
-      repos = repos,
+      ... = ...,
       verbose = verbose
     )
   invisible(gitai)
@@ -28,15 +26,14 @@ set_github_repos <- function(gitai,
 #' Set GitLab repositories in `GitAI` object.
 #' @name set_gitlab_repos
 #' @param gitai A \code{GitAI} object.
-#' @param host A character, GitLab host.
-#' @param repos A character vector or repositories full names.
+#' @param ... Parameters to pass to \code{\link[GitStats]{set_gitlab_host}}
+#'   function.
 #' @param verbose A logical. If \code{FALSE} you won't be getting
 #' additional diagnostic messages.
 #' @return A \code{GitAI} object.
 #' @export
 set_gitlab_repos <- function(gitai,
-                             host = NULL,
-                             repos,
+                             ... = ...,
                              verbose = is_verbose()) {
   if (is.null(gitai$gitstats)) {
     gitstats <- GitStats::create_gitstats()
@@ -45,8 +42,7 @@ set_gitlab_repos <- function(gitai,
   }
   gitai$gitstats <- gitstats |>
     GitStats::set_gitlab_host(
-      host = host,
-      repos = repos,
+      ... = ...,
       verbose = verbose
     )
   invisible(gitai)
