@@ -24,6 +24,7 @@ jobs:
 
     env:
       GITHUB_PAT: ${{ secrets.TEST_GITHUB_PAT }}
+      PINECONE_API_KEY: ${{ secrets.PINECONE_API_KEY }}
       R_KEEP_PKG_SOURCE: yes
 
     steps:
