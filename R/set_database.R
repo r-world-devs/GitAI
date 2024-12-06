@@ -1,3 +1,9 @@
+#' Setting database in `GitAI` object.
+#' 
+#' @inheritParams process_repos
+#' @param provider A string. Name of database provider.
+#' @param ... Additional arguments to pass to database provider constructor.
+#' 
 #' @export
 set_database <- function(
   gitai,

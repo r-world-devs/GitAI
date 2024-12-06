@@ -1,3 +1,9 @@
+#' Finding top K records in a vector database.
+#' 
+#' @param query A character, user query.
+#' @param top_k A numeric, number of top K records to return.
+#' @inheritParams process_repos
+#' 
 #' @export
 find_records <- function(
   gitai, 
@@ -10,5 +16,4 @@ find_records <- function(
     query = query, 
     top_k = top_k
   )
-
 }
