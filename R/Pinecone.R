@@ -65,27 +65,25 @@ Pinecone <- R6::R6Class(
         includeMetadata = TRUE
       )
       
-      request <-
-        httr2::request(url) |>
-          httr2::req_url_path_append("query") |>
-          httr2::req_headers(
-            "Api-Key" = pinecone_api_key,
-            "X-Pinecone-API-Version" = "2024-10"
-          ) |>
-          httr2::req_body_json(body)
+      request <- httr2::request(url) |>
+        httr2::req_url_path_append("query") |>
+        httr2::req_headers(
+          "Api-Key" = pinecone_api_key,
+          "X-Pinecone-API-Version" = "2024-10"
+        ) |>
+        httr2::req_body_json(body)
         
-      response <-
-        request |> 
-          httr2::req_perform()
-        
-        response_body <- httr2::resp_body_json(response)
-        results <- response_body$matches
-        
-        results |> 
-          purrr::map(function(result) {
-        result$values <- NULL
-        result
-      })
+      response <- request |> 
+        httr2::req_perform()
+      
+      response_body <- httr2::resp_body_json(response)
+      results <- response_body$matches
+      
+      results |> 
+        purrr::map(function(result) {
+          result$values <- NULL
+          result
+        })
     }
   ),
 
@@ -133,18 +131,16 @@ Pinecone <- R6::R6Class(
         )  
       )
 
-      request <- 
-        httr2::request(url) |> 
-          httr2::req_url_path_append("embed") |> 
-            httr2::req_headers(
+      request <- httr2::request(url) |> 
+        httr2::req_url_path_append("embed") |> 
+        httr2::req_headers(
           "Api-Key" = pinecone_api_key,
-            "X-Pinecone-API-Version" = "2024-10"
-          ) |> 
-          httr2::req_body_json(body) 
+          "X-Pinecone-API-Version" = "2024-10"
+        ) |> 
+        httr2::req_body_json(body) 
         
-      response <- 
-        request |>  
-          httr2::req_perform()
+      response <- request |>  
+        httr2::req_perform()
         
       response_body <- httr2::resp_body_json(response)
         

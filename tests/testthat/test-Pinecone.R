@@ -47,7 +47,7 @@ test_that("writting records", {
 
     result$upsertedCount |> expect_equal(1)
   }
- })
+})
 
 test_that("finding records", {
 

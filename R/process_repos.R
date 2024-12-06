@@ -38,7 +38,7 @@ process_repos <- function(
       
       content_to_process <- filtered_content |>
         dplyr::pull(file_content) |>
-          paste(collapse = "\n\n")
+        paste(collapse = "\n\n")
         
       if (verbose) {
         cli::cli_alert_info("Processing content with LLM...")
