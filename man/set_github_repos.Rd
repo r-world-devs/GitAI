@@ -4,17 +4,16 @@
 \alias{set_github_repos}
 \title{Set GitHub repositories in \code{GitAI} object.}
 \usage{
-set_github_repos(gitai, host = NULL, repos, verbose = is_verbose())
+set_github_repos(gitai, ... = ..., verbose = is_verbose())
 }
 \arguments{
 \item{gitai}{A \code{GitAI} object.}
 
-\item{host}{A character, GitHub host.}
+\item{...}{Parameters to pass to \code{\link[GitStats]{set_github_host}}
+function.}
 
-\item{repos}{A character vector or repositories full names.}
-
-\item{verbose}{A logical. If \code{FALSE} you won't be getting
-additional diagnostic messages.}
+\item{verbose}{A logical. If \code{FALSE} you won't be getting additional
+diagnostic messages.}
 }
 \value{
 A \code{GitAI} object.
