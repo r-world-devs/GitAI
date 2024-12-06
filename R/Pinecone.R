@@ -10,12 +10,9 @@ Pinecone <- R6::R6Class(
       url <- paste0("https://api.pinecone.io/indexes/", private$.index)
       
       httr2::request(url) |> 
-      httr2::req_headers(
-        "Api-Key" = pinecone_api_key
-      ) |> 
+        httr2::req_headers("Api-Key" = pinecone_api_key) |> 
         httr2::req_perform() |> 
         httr2::resp_body_json()
-
     },  
       
     write_record = function(id, text, metadata = list()) {
@@ -37,19 +34,17 @@ Pinecone <- R6::R6Class(
         )
       )
       
-      request <- 
-        httr2::request(url) |> 
-          httr2::req_url_path_append("vectors/upsert") |> 
-            httr2::req_headers(
+      request <- httr2::request(url) |> 
+        httr2::req_url_path_append("vectors/upsert") |> 
+        httr2::req_headers(
           "Api-Key" = pinecone_api_key,
           "X-Pinecone-API-Version" = "2024-10"
         ) |> 
-          httr2::req_body_json(body) 
+        httr2::req_body_json(body) 
         
-        response <- 
-          request |>  
-            httr2::req_perform()
-          
+      response <- request |>  
+        httr2::req_perform()
+        
       response_body <- httr2::resp_body_json(response)
       response_body
     },
