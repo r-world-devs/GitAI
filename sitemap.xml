@@ -6,11 +6,13 @@
 <url><loc>https://r-world-devs.github.io/GitAI/index.html</loc></url>
 <url><loc>https://r-world-devs.github.io/GitAI/reference/GitAI-package.html</loc></url>
 <url><loc>https://r-world-devs.github.io/GitAI/reference/add_files.html</loc></url>
+<url><loc>https://r-world-devs.github.io/GitAI/reference/find_records.html</loc></url>
 <url><loc>https://r-world-devs.github.io/GitAI/reference/index.html</loc></url>
 <url><loc>https://r-world-devs.github.io/GitAI/reference/initialize_project.html</loc></url>
 <url><loc>https://r-world-devs.github.io/GitAI/reference/is_verbose.html</loc></url>
 <url><loc>https://r-world-devs.github.io/GitAI/reference/missing_deps_note_fix.html</loc></url>
 <url><loc>https://r-world-devs.github.io/GitAI/reference/process_repos.html</loc></url>
+<url><loc>https://r-world-devs.github.io/GitAI/reference/set_database.html</loc></url>
 <url><loc>https://r-world-devs.github.io/GitAI/reference/set_github_repos.html</loc></url>
 <url><loc>https://r-world-devs.github.io/GitAI/reference/set_gitlab_repos.html</loc></url>
 <url><loc>https://r-world-devs.github.io/GitAI/reference/set_llm.html</loc></url>
