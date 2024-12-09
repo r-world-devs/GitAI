@@ -4,14 +4,13 @@
 \alias{set_gitlab_repos}
 \title{Set GitLab repositories in \code{GitAI} object.}
 \usage{
-set_gitlab_repos(gitai, host = NULL, repos, verbose = is_verbose())
+set_gitlab_repos(gitai, ... = ..., verbose = is_verbose())
 }
 \arguments{
 \item{gitai}{A \code{GitAI} object.}
 
-\item{host}{A character, GitLab host.}
-
-\item{repos}{A character vector or repositories full names.}
+\item{...}{Parameters to pass to \code{\link[GitStats]{set_gitlab_host}}
+function.}
 
 \item{verbose}{A logical. If \code{FALSE} you won't be getting
 additional diagnostic messages.}
