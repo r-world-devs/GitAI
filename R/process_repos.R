@@ -6,7 +6,7 @@
 #' @return A list.
 #' @export
 process_repos <- function(
-  gitai, 
+  gitai,
   verbose = is_verbose()
 ) {
 
@@ -17,11 +17,10 @@ process_repos <- function(
     add_contributors = FALSE,
     verbose = verbose
   )
-
   GitStats::get_files_structure(
     gitstats_object = gitstats,
-    pattern = gitai$files,
-    depth = 1L,
+    pattern = paste0(gitai$files, collapse = "|"),
+    depth = Inf,
     verbose = verbose
   )
   files_content <- GitStats::get_files_content(gitstats, verbose = verbose)
@@ -32,14 +31,14 @@ process_repos <- function(
       if (verbose) {
         cli::cli_alert_info("Processing repository: {.pkg {repo_name}}")
       }
-      
+
       filtered_content <- files_content |>
         dplyr::filter(repo_name == !!repo_name)
-      
+
       content_to_process <- filtered_content |>
         dplyr::pull(file_content) |>
         paste(collapse = "\n\n")
-        
+
       if (verbose) {
         cli::cli_alert_info("Processing content with LLM...")
       }
@@ -48,7 +47,7 @@ process_repos <- function(
         content = content_to_process
       ) |>
         add_metadata(content = filtered_content)
-      
+
       if (!is.null(gitai$db)) {
         if (verbose) {
           cli::cli_alert_info("Writing to database...")

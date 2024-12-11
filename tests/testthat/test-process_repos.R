@@ -1,10 +1,12 @@
 test_that("process_repos() returns results with repo metadata", {
-  withr::local_envvar(new = c("GITAI_VERBOSE" = FALSE))
+  withr::local_envvar(GITAI_VERBOSE = FALSE)
   my_project <- initialize_project("gitai_test_project") |>
     set_github_repos(
       repos = c("r-world-devs/GitStats", "openpharma/DataFakeR")
     ) |>
-    add_files(files = "README.md") |>
+    add_files(
+      files = c("DESCRIPTION", "\\.md", "project_metadata.yaml")
+    ) |>
     set_llm() |>
     set_prompt(system_prompt = "Summarize the user content if one sentence.")
   results <- my_project |> process_repos()
