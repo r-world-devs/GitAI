@@ -1,6 +1,5 @@
 test_that("process_repos() returns results with repo metadata", {
-  verbose_off()
-
+  withr::local_envvar(new = c("GITAI_VERBOSE" = FALSE))
   my_project <- initialize_project("gitai_test_project") |>
     set_github_repos(
       repos = c("r-world-devs/GitStats", "openpharma/DataFakeR")

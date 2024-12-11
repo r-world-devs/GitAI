@@ -1,5 +1,5 @@
 test_that("set_*_repos creates GitStats object inside GitAI with repos set", {
-  verbose_off()
+  withr::local_envvar(new = c("GITAI_VERBOSE" = FALSE))
   my_project <- initialize_project("gitai_test_project")
 
   my_project <- my_project |>
