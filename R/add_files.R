@@ -14,12 +14,3 @@ add_files <- function(gitai, files) {
   gitai$files <- files
   invisible(gitai)
 }
-
-is_file_path_pattern <- function(string) {
-  all(grepl("([/\\\\]|\\w+\\.\\w{2,4}|\\w{1,255})$", string)) &&
-    all(!grepl("^\\*?\\.\\w{2,4}$", string))
-}
-
-is_file_type_regex <- function(string) {
-  all(grepl("^\\*?\\.\\w{2,4}$|^.*\\*\\.\\w{2,4}$", string))
-}
