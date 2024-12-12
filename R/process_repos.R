@@ -7,6 +7,7 @@
 #' @export
 process_repos <- function(
   gitai,
+  depth = 1,
   verbose = is_verbose()
 ) {
 
@@ -20,16 +21,25 @@ process_repos <- function(
   GitStats::get_files_structure(
     gitstats_object = gitstats,
     pattern = paste0(gitai$files, collapse = "|"),
-    depth = Inf,
+    depth = depth,
     verbose = verbose
   )
   files_content <- GitStats::get_files_content(gitstats, verbose = verbose)
   repositories <- unique(files_content$repo_name)
+  api_urls    <- unique(files_content$api_url) 
+  
   results <-
-    repositories |>
-    purrr::map(function(repo_name) {
+    purrr::map2(repositories, api_urls, function(repo_name, api_url) {
+      
+      current_repo_number <- which(repositories == repo_name)
+      
       if (verbose) {
-        cli::cli_alert_info("Processing repository: {.pkg {repo_name}}")
+        cli::cli_alert(paste0(
+          "Processing repository ",
+          "[{current_repo_number}/{length(repositories)} ",
+          "{round(current_repo_number / length(repositories) * 100, 2)}%]: ",
+          "{.pkg {repo_name}}"
+        ))
       }
 
       filtered_content <- files_content |>
@@ -38,6 +48,34 @@ process_repos <- function(
       content_to_process <- filtered_content |>
         dplyr::pull(file_content) |>
         paste(collapse = "\n\n")
+
+      if (!is.null(gitai$db)) {
+        if (verbose) {
+          cli::cli_alert_info("Checking repo timestamp...")
+        }
+        record <- gitai$db$read_record(id = repo_name)
+        
+        if (NROW(record) > 0) {
+
+          record <- record[[1]]
+          record_timestamp <- as.POSIXct(record$metadata$timestamp, tz = "UTC")
+          
+          if (grepl("github", api_url)) {
+            api_url <- github_repo(api_url)
+          } else {
+            api_url <- gitlab_repo(api_url)
+          }
+          
+          repo_timestamp <- get_repo_date(api_url)
+          
+          if (repo_timestamp <= record_timestamp) {
+            if (verbose) {
+              cli::cli_alert_info("Repo has not been updated. Skipping...")
+            }
+            return(NULL)
+          }
+        }
+      }
 
       if (verbose) {
         cli::cli_alert_info("Processing content with LLM...")
