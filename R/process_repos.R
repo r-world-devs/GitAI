@@ -25,9 +25,15 @@ process_repos <- function(
     verbose = verbose
   )
   files_content <- GitStats::get_files_content(gitstats, verbose = verbose)
-  repositories <- unique(files_content$repo_name)
-  api_urls    <- unique(files_content$api_url) 
-  
+
+  distinct_repos <- files_content |> 
+    dplyr::distinct(repo_name, api_url) 
+
+  # repositories <- unique(files_content$repo_name)
+  repositories <- distinct_repos$repo_name
+  # api_urls    <- unique(files_content$api_url) 
+  api_urls    <- distinct_repos$api_url
+
   results <-
     purrr::map2(repositories, api_urls, function(repo_name, api_url) {
       
