@@ -1,6 +1,7 @@
 #' Run LLM on `GitAI` repositories content
 #' @name process_repos
 #' @param gitai A \code{GitAI} object.
+#' @param depth A numeric, maximum depth of folders to process.
 #' @param verbose A logical. If \code{FALSE} you won't be getting
 #' additional diagnostic messages.
 #' @return A list.
@@ -10,6 +11,8 @@ process_repos <- function(
   depth = 1,
   verbose = is_verbose()
 ) {
+
+  repo_name <- api_url <- NULL
 
   gitstats <- gitai$gitstats
 
@@ -29,10 +32,8 @@ process_repos <- function(
   distinct_repos <- files_content |> 
     dplyr::distinct(repo_name, api_url) 
 
-  # repositories <- unique(files_content$repo_name)
   repositories <- distinct_repos$repo_name
-  # api_urls    <- unique(files_content$api_url) 
-  api_urls    <- distinct_repos$api_url
+  api_urls     <- distinct_repos$api_url
 
   results <-
     purrr::map2(repositories, api_urls, function(repo_name, api_url) {
