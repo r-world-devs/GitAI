@@ -50,24 +50,24 @@ test_that("writting records", {
 })
 
 test_that("finding records", {
-
+  
   Sys.sleep(3)
   
   db <- Pinecone$new(
     namespace = "test_project_id",
     index = "gitai"
   )
-
+  
   result <- db$find_records(
     query = "Tell me about Apple Tech computer company.", 
     top_k = 1
   )
-
+  
   length(result) |> expect_equal(1)
   result[[1]]$id |> expect_equal("id_2")
   result[[1]]$metadata$text |> is.character() |> expect_true()
   result[[1]]$score |> is.numeric() |> expect_true()
-
+  
   result_2 <- db$find_records(
     query = "Tell me about apple fruit.", 
     top_k = 1
@@ -76,3 +76,16 @@ test_that("finding records", {
   expect_false(result_2[[1]]$id == result[[1]]$id)
 })
 
+test_that("reading records", {
+
+  db <- Pinecone$new(
+    namespace = "test_project_id",
+    index = "gitai"
+  )
+
+  result <- db$read_record(id = "id_1")
+
+  result[[1]]$metadata$text |> 
+    is.character() |>
+    expect_true()
+})

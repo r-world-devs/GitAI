@@ -11,6 +11,10 @@ VectorDatabase <- R6::R6Class(
       stop(call. = FALSE, "Not implemented yet.")
     },
     
+    read_record = function(id) {
+      stop(call. = FALSE, "Not implemented yet.")
+    },
+    
     find_records = function(query, top_k = 1) {
       stop(call. = FALSE, "Not implemented yet.")
     }

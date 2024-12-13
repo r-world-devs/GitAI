@@ -4,10 +4,12 @@
 \alias{process_repos}
 \title{Run LLM on \code{GitAI} repositories content}
 \usage{
-process_repos(gitai, verbose = is_verbose())
+process_repos(gitai, depth = 1, verbose = is_verbose())
 }
 \arguments{
 \item{gitai}{A \code{GitAI} object.}
+
+\item{depth}{A numeric, maximum depth of folders to process.}
 
 \item{verbose}{A logical. If \code{FALSE} you won't be getting
 additional diagnostic messages.}

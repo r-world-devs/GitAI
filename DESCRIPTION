@@ -27,6 +27,7 @@ Imports:
     glue
 Suggests: 
     testthat (>= 3.0.0),
+    shiny,
     withr
 Config/testthat/edition: 3
 Config/testthat/parallel: true
