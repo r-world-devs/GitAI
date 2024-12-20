@@ -1,5 +1,5 @@
 #' @noRd
-add_metadata <- function(result, content) {
+add_metadata <- function(result, content, timestamp) {
   web_url <- content$repo_url[1]
   api_url <- content$api_url[1]
   if (grepl("github", api_url)) {
@@ -10,7 +10,7 @@ add_metadata <- function(result, content) {
   result[["metadata"]] <- list(
     repo_url = web_url,
     files = paste0(content$file_path, collapse = ", "),
-    timestamp = get_repo_date(api_url)
+    timestamp = timestamp
   )
   result
 }
