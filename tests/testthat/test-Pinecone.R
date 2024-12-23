@@ -1,6 +1,6 @@
 test_that("getting index metadata", {
 
-  db <- Pinecone$new(
+  db <- PineconeMocked$new(
     namespace = "test_project_id",
     index  = "gitai"
   )
@@ -11,7 +11,7 @@ test_that("getting index metadata", {
 
 test_that("getting embeddings", {
 
-  db <- Pinecone$new(
+  db <- PineconeMocked$new(
     namespace = "test_project_id",
     index  = "gitai"
   )
