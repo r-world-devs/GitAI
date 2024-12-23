@@ -3,7 +3,7 @@ test_that("processing content have proper output structure", {
     set_llm() |>
     set_prompt(system_prompt = "Say 'Hi there!' only and nothing else.")
 
-  result <- process_content(gitai = my_project, content = "")
+  result <- process_content(gitai = my_project, content = "", verbose = FALSE)
   expect_equal(result$text, "Hi there!")
   expect_true(is.numeric(result$tokens))
   expect_true(is.list(result$output))
@@ -26,17 +26,18 @@ test_that("processing a single file content with deterministic output", {
   httr2::with_verbosity(verbosity = 0, {
     result <- process_content(
       gitai   = my_project,
-      content = test_content
+      content = test_content,
+      verbose = FALSE
     )
   })
   expect_length(gregexpr("\\.", result$text)[[1]], 1)
   expect_equal(
     result$text,
-    process_content(gitai = my_project, content = test_content)$text
+    process_content(gitai = my_project, content = test_content, verbose = FALSE)$text
   )
   expect_equal(
     result$text,
-    process_content(gitai = my_project, content = test_content)$text
+    process_content(gitai = my_project, content = test_content, verbose = FALSE)$text
   )
 
   test_mocker$cache(result)

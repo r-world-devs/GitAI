@@ -48,6 +48,34 @@ Pinecone <- R6::R6Class(
       response_body <- httr2::resp_body_json(response)
       response_body
     },
+
+    read_record = function(id) {
+
+      pinecone_api_key <- Sys.getenv("PINECONE_API_KEY")
+      
+      url <- paste0("https://", private$.index_host)
+      
+      request <- httr2::request(url) |>
+        httr2::req_url_path_append("vectors") |>
+        httr2::req_url_path_append("fetch") |>
+        httr2::req_url_query(
+          ids = id,
+          namespace = private$.namespace
+        ) |>
+        httr2::req_headers(
+          "Api-Key" = pinecone_api_key,
+          "X-Pinecone-API-Version" = "2024-10"
+        ) 
+        
+      response <- request |> 
+        httr2::req_perform()
+      
+      response_body <- httr2::resp_body_json(response)
+      results <- response_body$vectors
+      
+      results 
+    },
+
     
     find_records = function(query, top_k = 1) {
       
