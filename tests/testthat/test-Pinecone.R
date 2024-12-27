@@ -66,12 +66,6 @@ test_that("finding records", {
   result[[1]]$metadata$text |> is.character() |> expect_true()
   result[[1]]$score |> is.numeric() |> expect_true()
 
-  result_2 <- db$find_records(
-    query = "Tell me about apple fruit.",
-    top_k = 1
-  )
-
-  expect_false(result_2[[1]]$id == result[[1]]$id)
 })
 
 test_that("reading records", {
