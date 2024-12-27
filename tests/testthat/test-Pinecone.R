@@ -24,7 +24,7 @@ test_that("getting embeddings", {
 
 test_that("writting records", {
 
-  db <- Pinecone$new(
+  db <- PineconeMocked$new(
     namespace = "test_project_id",
     index = "gitai"
   )
@@ -51,9 +51,7 @@ test_that("writting records", {
 
 test_that("finding records", {
 
-  Sys.sleep(3)
-
-  db <- Pinecone$new(
+  db <- PineconeMocked$new(
     namespace = "test_project_id",
     index = "gitai"
   )
@@ -78,7 +76,7 @@ test_that("finding records", {
 
 test_that("reading records", {
 
-  db <- Pinecone$new(
+  db <- PineconeMocked$new(
     namespace = "test_project_id",
     index = "gitai"
   )
