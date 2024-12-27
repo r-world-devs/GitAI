@@ -148,6 +148,27 @@ Pinecone <- R6::R6Class(
       }
 
       return(record_ids)
+    },
+
+    purge_records = function(ids) {
+      pinecone_api_key <- Sys.getenv("PINECONE_API_KEY")
+
+      url <- paste0("https://", private$.index_host)
+
+      body <- list(
+        ids = ids,
+        namespace = private$.namespace
+      )
+
+      httr2::request(url) |>
+        httr2::req_url_path_append("vectors") |>
+        httr2::req_url_path_append("delete") |>
+        httr2::req_headers(
+          "Api-Key" = pinecone_api_key,
+          "X-Pinecone-API-Version" = "2024-10"
+        ) |>
+        httr2::req_body_json(body) |>
+        httr2::req_perform()
     }
   ),
 
