@@ -29,10 +29,10 @@ PineconeMocked <- R6::R6Class(
 
       url <- paste0("https://api.pinecone.io/indexes/", private$.index)
 
-      httr2::request(url) |>
-        httr2::req_headers("Api-Key" = pinecone_api_key) |>
-        httr2::req_dry_run(quiet = TRUE)
-      test_fixtures[["pinecone_index_response"]]
+      response <- httr2::response_json(
+        body = test_fixtures[["pinecone_index_response"]]
+      )
+      httr2::resp_body_json(response)
     },
 
     write_record = function(id, text, metadata = list()) {
@@ -62,10 +62,11 @@ PineconeMocked <- R6::R6Class(
         ) |>
         httr2::req_body_json(body)
 
-      response <- request |>
-        httr2::req_dry_run(quiet = TRUE)
+      response <- httr2::response_json(
+        body = list("upsertedCount" = 1)
+      )
 
-      response_body <- list("upsertedCount" = 1)
+      response_body <- httr2::resp_body_json(response)
       response_body
     },
 
@@ -87,10 +88,11 @@ PineconeMocked <- R6::R6Class(
           "X-Pinecone-API-Version" = "2024-10"
         )
 
-      response <- request |>
-        httr2::req_dry_run(quiet = TRUE)
+      response <- httr2::response_json(
+        body = test_fixtures[["read_record"]]
+      )
 
-      response_body <- test_fixtures[["read_record"]]
+      response_body <- httr2::resp_body_json(response)
       results <- response_body$vectors
 
       results
@@ -120,10 +122,11 @@ PineconeMocked <- R6::R6Class(
         ) |>
         httr2::req_body_json(body)
 
-      response <- request |>
-        httr2::req_dry_run(quiet = TRUE)
+      response <- httr2::response_json(
+        body = test_fixtures[["matched_records"]]
+      )
 
-      response_body <- test_fixtures[["matched_records"]]
+      response_body <- httr2::resp_body_json(response)
       results <- response_body$matches
 
       results |>
@@ -159,10 +162,11 @@ PineconeMocked <- R6::R6Class(
         ) |>
         httr2::req_body_json(body)
 
-      response <- request |>
-        httr2::req_dry_run(quiet = TRUE)
+      response <- httr2::response_json(
+        body = test_fixtures[["embeddings"]]
+      )
 
-      response_body <- test_fixtures[["embeddings"]]
+      response_body <- httr2::resp_body_json(response)
 
       response_body$data[[1]]$values |> unlist()
     }
