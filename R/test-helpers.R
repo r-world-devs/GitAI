@@ -134,6 +134,31 @@ PineconeMocked <- R6::R6Class(
           result$values <- NULL
           result
         })
+    },
+
+    list_record_IDs = function() {
+      pinecone_api_key <- Sys.getenv("PINECONE_API_KEY")
+
+      url <- paste0("https://", private$.index_host)
+
+      request <- httr2::request(url) |>
+        httr2::req_url_path_append("vectors") |>
+        httr2::req_url_path_append("list") |>
+        httr2::req_url_query(
+          namespace = private$.namespace
+        ) |>
+        httr2::req_headers(
+          "Api-Key" = pinecone_api_key,
+          "X-Pinecone-API-Version" = "2024-10"
+        )
+
+      response <- httr2::response_json(
+        body = test_fixtures[["list_record_IDs"]]
+      )
+
+      response_body <- httr2::resp_body_json(response)
+
+      purrr::map_vec(response_body$vectors, ~ .$id)
     }
   ),
 
@@ -230,6 +255,28 @@ test_fixtures[["read_record"]] <- list(
     "TestProject" = list(
       "values" = test_fixtures[["embeddings"]][["data"]][[1]]["values"],
       "metadata" = test_fixtures[["matched_records"]][["matches"]][[1]][["metadata"]]
+    )
+  ),
+  "namespace" = "gitai-tests",
+  "usage" = list("readUnits" = 1L)
+)
+
+test_fixtures[["list_record_IDs"]] <- list(
+  "vectors" = list(
+    list(
+      "id" = "project_1"
+    ),
+    list(
+      "id" = "project_2"
+    ),
+    list(
+      "id" = "project_3"
+    ),
+    list(
+      "id" = "project_4"
+    ),
+    list(
+      "id" = "project_5"
     )
   ),
   "namespace" = "gitai-tests",
