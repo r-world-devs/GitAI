@@ -1,6 +1,6 @@
 test_that("getting index metadata", {
 
-  db <- Pinecone$new(
+  db <- PineconeMocked$new(
     namespace = "test_project_id",
     index  = "gitai"
   )
@@ -11,7 +11,7 @@ test_that("getting index metadata", {
 
 test_that("getting embeddings", {
 
-  db <- Pinecone$new(
+  db <- PineconeMocked$new(
     namespace = "test_project_id",
     index  = "gitai"
   )
@@ -24,7 +24,7 @@ test_that("getting embeddings", {
 
 test_that("writting records", {
 
-  db <- Pinecone$new(
+  db <- PineconeMocked$new(
     namespace = "test_project_id",
     index = "gitai"
   )
@@ -51,9 +51,7 @@ test_that("writting records", {
 
 test_that("finding records", {
 
-  Sys.sleep(3)
-
-  db <- Pinecone$new(
+  db <- PineconeMocked$new(
     namespace = "test_project_id",
     index = "gitai"
   )
@@ -68,17 +66,11 @@ test_that("finding records", {
   result[[1]]$metadata$text |> is.character() |> expect_true()
   result[[1]]$score |> is.numeric() |> expect_true()
 
-  result_2 <- db$find_records(
-    query = "Tell me about apple fruit.",
-    top_k = 1
-  )
-
-  expect_false(result_2[[1]]$id == result[[1]]$id)
 })
 
 test_that("reading records", {
 
-  db <- Pinecone$new(
+  db <- PineconeMocked$new(
     namespace = "test_project_id",
     index = "gitai"
   )
