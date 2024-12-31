@@ -81,3 +81,16 @@ test_that("reading records", {
     is.character() |>
     expect_true()
 })
+
+test_that("listing all records IDs", {
+
+  db <- PineconeMocked$new(
+    namespace = "test_project_id",
+    index = "gitai"
+  )
+
+  result <- db$list_record_IDs()
+
+  expect_type(result, "character")
+  expect_gt(length(result), 1)
+})
