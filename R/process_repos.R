@@ -21,13 +21,12 @@ process_repos <- function(
     add_contributors = FALSE,
     verbose = verbose
   )
-  GitStats::get_files_structure(
+  files_content <- GitStats::get_files(
     gitstats,
     pattern = paste0(gitai$files, collapse = "|"),
     depth = depth,
     verbose = verbose
   )
-  files_content <- GitStats::get_files_content(gitstats, verbose = verbose)
 
   distinct_repos <- files_content |>
     dplyr::distinct(repo_name, api_url)
