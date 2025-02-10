@@ -16,7 +16,7 @@ Depends:
 Imports:
     cli (>= 3.4.0),
     elmer,
-    GitStats,
+    GitStats (>= 2.2.1),
     httr2,
     lubridate,
     R6,
