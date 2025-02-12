@@ -1,6 +1,6 @@
 {
   "R": {
-    "Version": "4.4.1",
+    "Version": "4.4.2",
     "Repositories": [
       {
         "Name": "CRAN",
@@ -11,9 +11,14 @@
   "Packages": {
     "GitStats": {
       "Package": "GitStats",
-      "Version": "2.1.2",
-      "Source": "Repository",
-      "Repository": "CRAN",
+      "Version": "2.2.1",
+      "Source": "GitHub",
+      "RemoteType": "github",
+      "RemoteHost": "api.github.com",
+      "RemoteRepo": "GitStats",
+      "RemoteUsername": "r-world-devs",
+      "RemotePkgRef": "r-world-devs/GitStats",
+      "RemoteSha": "7aaa0a4623a3f3b1162627261397c18c525440d4",
       "Requirements": [
         "R6",
         "cli",
@@ -26,7 +31,18 @@
         "rlang",
         "stringr"
       ],
-      "Hash": "7c9669f1a8fab1f53575323f9aa23d29"
+      "Hash": "c9ac163b8dc8ebf724eb9a0ce565b884"
+    },
+    "PKI": {
+      "Package": "PKI",
+      "Version": "0.1-14",
+      "Source": "Repository",
+      "Repository": "CRAN",
+      "Requirements": [
+        "R",
+        "base64enc"
+      ],
+      "Hash": "f5b9c6b2f62f1fa3dd53fd1ddccbb241"
     },
     "R6": {
       "Package": "R6",
@@ -189,13 +205,13 @@
     },
     "curl": {
       "Package": "curl",
-      "Version": "6.0.1",
+      "Version": "6.2.0",
       "Source": "Repository",
       "Repository": "CRAN",
       "Requirements": [
         "R"
       ],
-      "Hash": "e8ba62486230951fcd2b881c5be23f96"
+      "Hash": "b580cbb010099fd990df6bfe44459e1a"
     },
     "desc": {
       "Package": "desc",
@@ -279,16 +295,16 @@
       ],
       "Hash": "fedd9d00c2944ff00a0e2696ccf048ec"
     },
-    "elmer": {
-      "Package": "elmer",
-      "Version": "0.0.0.9000",
+    "ellmer": {
+      "Package": "ellmer",
+      "Version": "0.1.1",
       "Source": "GitHub",
       "RemoteType": "github",
       "RemoteHost": "api.github.com",
-      "RemoteRepo": "elmer",
+      "RemoteRepo": "ellmer",
       "RemoteUsername": "tidyverse",
-      "RemotePkgRef": "tidyverse/elmer",
-      "RemoteSha": "848fd2f0739a73863c86246a3e1f8fd95b73d4ef",
+      "RemotePkgRef": "tidyverse/ellmer",
+      "RemoteSha": "3e308215eb3d3a9070beb2a9bd3a4a8f6d19d74b",
       "Requirements": [
         "R6",
         "S7",
@@ -297,9 +313,12 @@
         "glue",
         "httr2",
         "jsonlite",
+        "later",
+        "lifecycle",
+        "promises",
         "rlang"
       ],
-      "Hash": "7b6008b2091a6d4a93b8e57bef424449"
+      "Hash": "aac4119c1d099825cd76fff27752de8a"
     },
     "evaluate": {
       "Package": "evaluate",
@@ -419,7 +438,7 @@
     },
     "httr2": {
       "Package": "httr2",
-      "Version": "1.0.7",
+      "Version": "1.1.0",
       "Source": "Repository",
       "Repository": "CRAN",
       "Requirements": [
@@ -436,7 +455,7 @@
         "vctrs",
         "withr"
       ],
-      "Hash": "5a76da345ed4f3e6430517e08441edaf"
+      "Hash": "0f14199bbd820a9fca398f2df40994f1"
     },
     "jquerylib": {
       "Package": "jquerylib",
@@ -476,14 +495,19 @@
     },
     "later": {
       "Package": "later",
-      "Version": "1.3.2",
-      "Source": "Repository",
-      "Repository": "CRAN",
+      "Version": "1.4.1.9000",
+      "Source": "GitHub",
+      "RemoteType": "github",
+      "RemoteHost": "api.github.com",
+      "RemoteRepo": "later",
+      "RemoteUsername": "r-lib",
+      "RemotePkgRef": "r-lib/later",
+      "RemoteSha": "82d9609217fdddb601b1569891f9fcece62a78be",
       "Requirements": [
         "Rcpp",
         "rlang"
       ],
-      "Hash": "a3e051d405326b8b0012377434c62b37"
+      "Hash": "9d26a747e03dde9eb9168c9f0b61ea9e"
     },
     "lifecycle": {
       "Package": "lifecycle",
@@ -521,6 +545,19 @@
       ],
       "Hash": "7ce2733a9826b3aeb1775d56fd305472"
     },
+    "markdown": {
+      "Package": "markdown",
+      "Version": "1.13",
+      "Source": "Repository",
+      "Repository": "CRAN",
+      "Requirements": [
+        "R",
+        "commonmark",
+        "utils",
+        "xfun"
+      ],
+      "Hash": "074efab766a9d6360865ad39512f2a7e"
+    },
     "memoise": {
       "Package": "memoise",
       "Version": "2.0.1",
@@ -551,6 +588,18 @@
         "askpass"
       ],
       "Hash": "d413e0fef796c9401a4419485f709ca1"
+    },
+    "packrat": {
+      "Package": "packrat",
+      "Version": "0.9.2",
+      "Source": "Repository",
+      "Repository": "CRAN",
+      "Requirements": [
+        "R",
+        "tools",
+        "utils"
+      ],
+      "Hash": "55ddd2d4a1959535f18393478b0c14a6"
     },
     "pillar": {
       "Package": "pillar",
@@ -668,7 +717,7 @@
     },
     "promises": {
       "Package": "promises",
-      "Version": "1.3.0",
+      "Version": "1.3.2",
       "Source": "Repository",
       "Repository": "CRAN",
       "Requirements": [
@@ -680,7 +729,7 @@
         "rlang",
         "stats"
       ],
-      "Hash": "434cd5388a3979e74be5c219bcd6e77d"
+      "Hash": "c84fd4f75ea1f5434735e08b7f50fbca"
     },
     "ps": {
       "Package": "ps",
@@ -783,6 +832,29 @@
       ],
       "Hash": "4c8415e0ec1e29f3f4f6fc108bef0144"
     },
+    "rsconnect": {
+      "Package": "rsconnect",
+      "Version": "1.3.3",
+      "Source": "Repository",
+      "Repository": "CRAN",
+      "Requirements": [
+        "PKI",
+        "R",
+        "cli",
+        "curl",
+        "digest",
+        "jsonlite",
+        "lifecycle",
+        "openssl",
+        "packrat",
+        "renv",
+        "rlang",
+        "rstudioapi",
+        "tools",
+        "yaml"
+      ],
+      "Hash": "d466c98fdce812325feb4ad406c6ca4b"
+    },
     "rstudioapi": {
       "Package": "rstudioapi",
       "Version": "0.17.1",
@@ -806,9 +878,14 @@
     },
     "shiny": {
       "Package": "shiny",
-      "Version": "1.9.1",
-      "Source": "Repository",
-      "Repository": "CRAN",
+      "Version": "1.9.1.9000",
+      "Source": "GitHub",
+      "RemoteType": "github",
+      "RemoteHost": "api.github.com",
+      "RemoteRepo": "shiny",
+      "RemoteUsername": "rstudio",
+      "RemotePkgRef": "rstudio/shiny",
+      "RemoteSha": "82c678a1ebe3cba8cf16a43ab72b10098e7fe15e",
       "Requirements": [
         "R",
         "R6",
@@ -835,7 +912,26 @@
         "withr",
         "xtable"
       ],
-      "Hash": "6a293995a66e12c48d13aa1f957d09c7"
+      "Hash": "7fdb86b4ea381a95b4de6af78bd54013"
+    },
+    "shinychat": {
+      "Package": "shinychat",
+      "Version": "0.0.0.9000",
+      "Source": "GitHub",
+      "RemoteType": "github",
+      "RemoteHost": "api.github.com",
+      "RemoteRepo": "shinychat",
+      "RemoteUsername": "jcheng5",
+      "RemotePkgRef": "jcheng5/shinychat",
+      "RemoteSha": "cc5221123c42137405c921bf1711c2de1e0408a1",
+      "Requirements": [
+        "bslib",
+        "coro",
+        "htmltools",
+        "rlang",
+        "shiny"
+      ],
+      "Hash": "28f7043bddc31de69806c8682d002cda"
     },
     "sourcetools": {
       "Package": "sourcetools",

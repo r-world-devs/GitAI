@@ -3,15 +3,15 @@
 #' @name set_llm
 #' @param gitai A \code{GitAI} object.
 #' @param provider Name of LLM provider, a string. Results with setting up LLM using
-#'   \code{elmer::chat_<provider>} function.
-#' @param ... Other arguments to pass to corresponding \code{elmer::chat_<provider>} function.
+#'   \code{ellmer::chat_<provider>} function.
+#' @param ... Other arguments to pass to corresponding \code{ellmer::chat_<provider>} function.
 #'   Please use \link{get_llm_defaults} to get default model arguments.
 #' @return A \code{GitAI} object.
 #' @export
 set_llm <- function(gitai, provider = "openai", ...) {
 
   provider_method <- rlang::env_get(
-    env = asNamespace("elmer"),
+    env = asNamespace("ellmer"),
     nm = glue::glue("chat_{provider}")
   )
   provider_args <- purrr::list_modify(

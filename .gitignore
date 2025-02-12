@@ -2,3 +2,6 @@
 .Renviron
 docs
 inst/demo-app/rsconnect/
+
+/.quarto/
+README.html

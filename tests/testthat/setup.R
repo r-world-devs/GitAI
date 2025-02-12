@@ -3,7 +3,7 @@ test_mocker <- Mocker$new()
 # Override other methods when needed in the future
 ChatMocked <- R6::R6Class(
   "ChatMocked",
-  inherit = elmer:::Chat,
+  inherit = ellmer:::Chat,
   public = list(
     chat = function(..., echo = NULL) {
       if (self$get_system_prompt() == "You always return only 'Hi there!'") {
@@ -35,9 +35,9 @@ chat_openai_mocked <- function(system_prompt = NULL,
                                api_args = list(),
                                echo = c("none", "text", "all")) {
 
-  turns <- elmer:::normalize_turns(turns, system_prompt)
-  model <- elmer:::set_default(model, "gpt-4o")
-  echo <- elmer:::check_echo(echo)
+  turns <- ellmer:::normalize_turns(turns, system_prompt)
+  model <- ellmer:::set_default(model, "gpt-4o")
+  echo <- ellmer:::check_echo(echo)
 
   if (is.null(seed)) {
     seed <- 1014
@@ -51,7 +51,7 @@ chat_openai_mocked <- function(system_prompt = NULL,
     seed = seed,
     extra_args = api_args,
     api_key = api_key,
-    provider_class = elmer:::ProviderOpenAI
+    provider_class = ellmer:::ProviderOpenAI
   )
 }
 
@@ -70,9 +70,9 @@ chat_bedrock_mocked <- function(system_prompt = NULL,
     region = "eu-central-1"
   )
 
-  turns <- elmer:::normalize_turns(turns, system_prompt)
-  model <- elmer:::set_default(model, "model_bedrock")
-  echo <- elmer:::check_echo(echo)
+  turns <- ellmer:::normalize_turns(turns, system_prompt)
+  model <- ellmer:::set_default(model, "model_bedrock")
+  echo <- ellmer:::check_echo(echo)
 
   mock_chat_method(
     turns = turns,
@@ -81,6 +81,6 @@ chat_bedrock_mocked <- function(system_prompt = NULL,
     model = model,
     profile = profile,
     credentials = credentials,
-    provider_class = elmer:::ProviderBedrock
+    provider_class = ellmer:::ProviderBedrock
   )
 }
