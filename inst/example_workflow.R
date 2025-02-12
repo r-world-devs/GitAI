@@ -13,6 +13,6 @@ gitai_demo$db$find_records("Find package with which I can plot data.")
 
 gitai_demo$db$read_record("GitStats")
 
-record_ids <- gitai_demo$db$list_record_IDs()
+record_ids <- gitai_demo$db$list_record_ids()
 
 gitai_demo$db$purge_records(record_ids)

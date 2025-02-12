@@ -89,7 +89,7 @@ test_that("listing all records IDs", {
     index = "gitai"
   )
 
-  result <- db$list_record_IDs()
+  result <- db$list_record_ids()
 
   expect_type(result, "character")
   expect_gt(length(result), 1)

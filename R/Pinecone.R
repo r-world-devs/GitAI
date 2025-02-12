@@ -114,7 +114,7 @@ Pinecone <- R6::R6Class(
         })
     },
 
-    list_record_IDs = function() {
+    list_record_ids = function() {
 
       pinecone_api_key <- Sys.getenv("PINECONE_API_KEY")
 
