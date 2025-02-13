@@ -79,6 +79,7 @@ Let's set up a project `fascinating_project` that will extract some summaries fr
 
 
 ```{r}
+options(ellmer_timeout_s = 120)
 verbose_off()
 my_project <- initialize_project("fascinating_project") |>
   set_github_repos(
@@ -102,3 +103,9 @@ purrr::walk(results, function(result) {
   result$text |> stringr::str_wrap(width = 80) |> cat("\n\n")
 })
 ```
+
+## See also
+
+Our `GitAI` uses under the hood the `GitStats` R package.
+If you want to use it directly for pulling git data, check out:
+[https://r-world-devs.github.io/GitStats/](https://r-world-devs.github.io/GitStats/)

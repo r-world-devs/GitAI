@@ -76,6 +76,7 @@ summaries from the content of the `README.md` files in the few selected
 git repositories.
 
 ``` r
+options(ellmer_timeout_s = 120)
 verbose_off()
 my_project <- initialize_project("fascinating_project") |>
   set_github_repos(
@@ -98,16 +99,23 @@ results <- process_repos(my_project)
 purrr::walk(results, function(result) {
   result$text |> stringr::str_wrap(width = 80) |> cat("\n\n")
 })
-#> GitStats is an R package that enables users to uniformly extract and analyze
-#> various git data, including repositories, commits, users, and R package usage,
-#> from both GitHub and GitLab in a tabular format. 
+#> GitStats is an R package that allows users to systematically retrieve and
+#> analyze data from GitHub and GitLab repositories, including repository details,
+#> commit statistics, user contributions, release logs, file contents, and R
+#> package usage, all formatted in a unified manner. 
 #> 
 #> GitAI is an R package that leverages AI and Large Language Models to extract
-#> insights from GitHub and GitLab repositories, enabling users to easily define
-#> project scopes, select content of interest, and process multiple repositories in
-#> a streamlined, tidyverse-compatible manner. 
+#> and summarize insights from GitHub or GitLab repositories, enabling users to
+#> efficiently set project scopes, select relevant files, and process repository
+#> content in a tidyverse-friendly manner. 
 #> 
-#> DataFakeR is an R package that allows users to generate synthetic data samples
-#> while maintaining the structural and relational integrity of the original
-#> datasets, enabling efficient simulation for testing and analysis.
+#> DataFakeR is an R package that enables users to generate synthetic data samples
+#> while maintaining predefined structural and relational attributes of the
+#> original data, facilitating experimental data simulation and testing.
 ```
+
+## See also
+
+Our `GitAI` uses under the hood the `GitStats` R package. If you want to
+use it directly for pulling git data, check out:
+<https://r-world-devs.github.io/GitStats/>
