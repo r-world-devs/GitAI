@@ -28,5 +28,8 @@ Imports:
 Suggests: 
     testthat (>= 3.0.0),
     shiny,
-    withr
+    withr,
+    knitr,
+    rmarkdown
 Config/testthat/edition: 3
+VignetteBuilder: knitr
