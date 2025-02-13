@@ -1,6 +1,7 @@
-# pak::pkg_install("r-world-devs/GitAI")
+# pak::pkg_install("r-world-devs/GitAI@waisk/34/prepare_release")
 # pak::pkg_install("r-world-devs/GitStats")
 # pak::pkg_install("tidyverse/ellmer")
+# pak::pkg_install("shinychat")
 # rstudioapi::restartSession()
 
 my_project <- initialize_project("gitai-demo") |>
@@ -113,7 +114,7 @@ rsconnect::setAccountInfo(
 )
 
 rsconnect::deployApp(
-  appDir = "inst/demo",
+  appDir = "inst/demo-app",
   account = "kalimu", 
   appName = "GitAI-demo"
 )
