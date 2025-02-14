@@ -47,7 +47,7 @@ my_project <- my_project |>
     Mention core functionality and all main features of the project.
     If available, mention briefly the technology used in the project 
     (like R, Python, etc).
-    If available, mention brifly if a project is an R package, shiny app, 
+    If available, mention briefly if a project is an R package, shiny app, 
     or other type of tool.
   )")
 
