@@ -39,7 +39,7 @@ repositories is a constant challenge.
 We propose the `GitAI` framework written in R.
 
 It is applicable to multiple use cases related to extracting knowledge from Git repositories. 
-At the same time, is IT infrastructure agnostic. It is design to work with
+At the same time, is IT infrastructure agnostic. It is designed to work with
 different backends, LLMs, embeddings models, and vector databases.
 Adapting to particular backends may need implementation of new classes, but
 the core functionality stays the same.
