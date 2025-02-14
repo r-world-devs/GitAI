@@ -45,7 +45,7 @@ my_project <- my_project |>
     Write up to ten paragraphs of summary for a project based on given input.
     Be precise and to the point in your answers.
     Mention core functionality and all main features of the project.
-    If available, mention brifly the technology used in the project 
+    If available, mention briefly the technology used in the project 
     (like R, Python, etc).
     If available, mention brifly if a project is an R package, shiny app, 
     or other type of tool.
