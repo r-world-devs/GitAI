@@ -16,7 +16,7 @@ Depends:
 Imports:
     cli (>= 3.4.0),
     ellmer,
-    GitStats,
+    GitStats (>= 2.2.0),
     httr2,
     lubridate,
     R6,
@@ -28,6 +28,7 @@ Imports:
 Suggests: 
     testthat (>= 3.0.0),
     shiny,
+    shinychat,
     withr,
     knitr,
     rmarkdown

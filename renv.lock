@@ -1,6 +1,6 @@
 {
   "R": {
-    "Version": "4.4.2",
+    "Version": "4.4.1",
     "Repositories": [
       {
         "Name": "CRAN",
@@ -11,15 +11,11 @@
   "Packages": {
     "GitStats": {
       "Package": "GitStats",
-      "Version": "2.2.1",
-      "Source": "GitHub",
-      "RemoteType": "github",
-      "RemoteHost": "api.github.com",
-      "RemoteRepo": "GitStats",
-      "RemoteUsername": "r-world-devs",
-      "RemotePkgRef": "r-world-devs/GitStats",
-      "RemoteSha": "7aaa0a4623a3f3b1162627261397c18c525440d4",
+      "Version": "2.2.2",
+      "Source": "Repository",
+      "Repository": "CRAN",
       "Requirements": [
+        "R",
         "R6",
         "cli",
         "dplyr",
@@ -31,7 +27,7 @@
         "rlang",
         "stringr"
       ],
-      "Hash": "c9ac163b8dc8ebf724eb9a0ce565b884"
+      "Hash": "9c9d247bf9150bc750d9c2e0502ff10e"
     },
     "PKI": {
       "Package": "PKI",
@@ -46,13 +42,13 @@
     },
     "R6": {
       "Package": "R6",
-      "Version": "2.5.1",
+      "Version": "2.6.0",
       "Source": "Repository",
       "Repository": "CRAN",
       "Requirements": [
         "R"
       ],
-      "Hash": "470851b6d5d0ac559e9d01bb352b4021"
+      "Hash": "245934b1f739076a00b61ee7d9cd5233"
     },
     "Rcpp": {
       "Package": "Rcpp",
@@ -154,14 +150,14 @@
     },
     "cli": {
       "Package": "cli",
-      "Version": "3.6.3",
+      "Version": "3.6.4",
       "Source": "Repository",
       "Repository": "CRAN",
       "Requirements": [
         "R",
         "utils"
       ],
-      "Hash": "b21916dd77a27642b447374a5d30ecf3"
+      "Hash": "491c34d3d9dd0d2fe13d9f278bb90795"
     },
     "commonmark": {
       "Package": "commonmark",
@@ -298,13 +294,8 @@
     "ellmer": {
       "Package": "ellmer",
       "Version": "0.1.1",
-      "Source": "GitHub",
-      "RemoteType": "github",
-      "RemoteHost": "api.github.com",
-      "RemoteRepo": "ellmer",
-      "RemoteUsername": "tidyverse",
-      "RemotePkgRef": "tidyverse/ellmer",
-      "RemoteSha": "3e308215eb3d3a9070beb2a9bd3a4a8f6d19d74b",
+      "Source": "Repository",
+      "Repository": "CRAN",
       "Requirements": [
         "R6",
         "S7",
@@ -318,7 +309,7 @@
         "promises",
         "rlang"
       ],
-      "Hash": "aac4119c1d099825cd76fff27752de8a"
+      "Hash": "754d3a8cbb25b05be2058892f579422f"
     },
     "evaluate": {
       "Package": "evaluate",
@@ -495,19 +486,14 @@
     },
     "later": {
       "Package": "later",
-      "Version": "1.4.1.9000",
-      "Source": "GitHub",
-      "RemoteType": "github",
-      "RemoteHost": "api.github.com",
-      "RemoteRepo": "later",
-      "RemoteUsername": "r-lib",
-      "RemotePkgRef": "r-lib/later",
-      "RemoteSha": "82d9609217fdddb601b1569891f9fcece62a78be",
+      "Version": "1.4.1",
+      "Source": "Repository",
+      "Repository": "CRAN",
       "Requirements": [
         "Rcpp",
         "rlang"
       ],
-      "Hash": "9d26a747e03dde9eb9168c9f0b61ea9e"
+      "Hash": "501744395cac0bab0fbcfab9375ae92c"
     },
     "lifecycle": {
       "Package": "lifecycle",
@@ -524,7 +510,7 @@
     },
     "lubridate": {
       "Package": "lubridate",
-      "Version": "1.9.3",
+      "Version": "1.9.4",
       "Source": "Repository",
       "Repository": "CRAN",
       "Requirements": [
@@ -533,7 +519,7 @@
         "methods",
         "timechange"
       ],
-      "Hash": "680ad542fbcf801442c83a6ac5a2126c"
+      "Hash": "be38bc740fc51783a78edb5a157e4104"
     },
     "magrittr": {
       "Package": "magrittr",
@@ -744,7 +730,7 @@
     },
     "purrr": {
       "Package": "purrr",
-      "Version": "1.0.2",
+      "Version": "1.0.4",
       "Source": "Repository",
       "Repository": "CRAN",
       "Requirements": [
@@ -755,7 +741,7 @@
         "rlang",
         "vctrs"
       ],
-      "Hash": "1cba04a4e9414bdefc9dcaa99649a8dc"
+      "Hash": "cc8b5d43f90551fa6df0a6be5d640a4f"
     },
     "ragg": {
       "Package": "ragg",
@@ -790,14 +776,14 @@
     },
     "rlang": {
       "Package": "rlang",
-      "Version": "1.1.4",
+      "Version": "1.1.5",
       "Source": "Repository",
       "Repository": "CRAN",
       "Requirements": [
         "R",
         "utils"
       ],
-      "Hash": "3eec01f8b1dee337674b2e34ab1f9bc1"
+      "Hash": "724dcc1490cd7071ee75ca2994a5446e"
     },
     "rmarkdown": {
       "Package": "rmarkdown",
@@ -834,7 +820,7 @@
     },
     "rsconnect": {
       "Package": "rsconnect",
-      "Version": "1.3.3",
+      "Version": "1.3.4",
       "Source": "Repository",
       "Repository": "CRAN",
       "Requirements": [
@@ -853,7 +839,7 @@
         "tools",
         "yaml"
       ],
-      "Hash": "d466c98fdce812325feb4ad406c6ca4b"
+      "Hash": "315454d2f50d117ef58691d0bf50fe63"
     },
     "rstudioapi": {
       "Package": "rstudioapi",
@@ -878,14 +864,9 @@
     },
     "shiny": {
       "Package": "shiny",
-      "Version": "1.9.1.9000",
-      "Source": "GitHub",
-      "RemoteType": "github",
-      "RemoteHost": "api.github.com",
-      "RemoteRepo": "shiny",
-      "RemoteUsername": "rstudio",
-      "RemotePkgRef": "rstudio/shiny",
-      "RemoteSha": "82c678a1ebe3cba8cf16a43ab72b10098e7fe15e",
+      "Version": "1.10.0",
+      "Source": "Repository",
+      "Repository": "CRAN",
       "Requirements": [
         "R",
         "R6",
@@ -912,26 +893,22 @@
         "withr",
         "xtable"
       ],
-      "Hash": "7fdb86b4ea381a95b4de6af78bd54013"
+      "Hash": "4b4477baa9a939c5577e5ddb4bf01f28"
     },
     "shinychat": {
       "Package": "shinychat",
-      "Version": "0.0.0.9000",
-      "Source": "GitHub",
-      "RemoteType": "github",
-      "RemoteHost": "api.github.com",
-      "RemoteRepo": "shinychat",
-      "RemoteUsername": "jcheng5",
-      "RemotePkgRef": "jcheng5/shinychat",
-      "RemoteSha": "cc5221123c42137405c921bf1711c2de1e0408a1",
+      "Version": "0.1.1",
+      "Source": "Repository",
+      "Repository": "CRAN",
       "Requirements": [
         "bslib",
         "coro",
         "htmltools",
+        "promises",
         "rlang",
         "shiny"
       ],
-      "Hash": "28f7043bddc31de69806c8682d002cda"
+      "Hash": "91710277289f23fa91f7f2c257d94996"
     },
     "sourcetools": {
       "Package": "sourcetools",
