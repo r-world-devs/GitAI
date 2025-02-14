@@ -58,7 +58,7 @@ Typical `GitAI` workflow looks like that:
     1. (Optional) If vector database is setup, the results will be stored there.
 1. Use the information extracted from files content from git repositories.
     1. (Optional) If results are stored in vector database, 
-  they can be search using *semantic search* or used as a part of a RAG (*Retrieval Augmented Generation*) prompt.
+  they can be searched using *semantic search* or used as a part of a RAG (*Retrieval Augmented Generation*) prompt.
 
 ## Installation
 
