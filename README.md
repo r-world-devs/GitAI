@@ -20,7 +20,7 @@ different platforms (like `GitHub` and `GitLab`).
 
 It is very difficult or even impossible to review all those repositories
 manually, especially if one needs to perform an exploratory search, not
-knowing the exact keywords that should be use.
+knowing the exact keywords that should be used.
 
 Because of that the reusability of the knowledge (and code) hidden in
 the repositories is a constant challenge.
@@ -31,7 +31,7 @@ We propose the `GitAI` framework written in R.
 
 It is applicable to multiple use cases related to extracting knowledge
 from Git repositories. At the same time, is IT infrastructure agnostic.
-It is design to work with different backends, LLMs, embeddings models,
+It is designed to work with different backends, LLMs, embeddings models,
 and vector databases. Adapting to particular backends may need
 implementation of new classes, but the core functionality stays the
 same.
@@ -47,12 +47,12 @@ Typical `GitAI` workflow looks like that:
     4.  Define the LLM prompts.
     5.  (Optional) Choose embedding model and vector database provider.
 2.  Process content of all repositories with a single function call.
-    1.  (Optional) If vector database is setup the results will be
+    1.  (Optional) If vector database is setup, the results will be
         stored there.
 3.  Use the information extracted from files content from git
     repositories.
     1.  (Optional) If results are stored in vector database, they can be
-        search using *semantic search* or used as a part of a RAG
+        searched using *semantic search* or used as a part of a RAG
         (*Retrieval Augmented Generation*) prompt.
 
 ## Installation
@@ -99,19 +99,18 @@ results <- process_repos(my_project)
 purrr::walk(results, function(result) {
   result$text |> stringr::str_wrap(width = 80) |> cat("\n\n")
 })
-#> GitStats is an R package that allows users to systematically retrieve and
-#> analyze data from GitHub and GitLab repositories, including repository details,
-#> commit statistics, user contributions, release logs, file contents, and R
-#> package usage, all formatted in a unified manner. 
+#> GitStats is an experimental R package that facilitates the extraction
+#> and analysis of git data from GitHub and GitLab, providing insights into
+#> repositories, commits, users, and R package usage in a structured format. 
 #> 
 #> GitAI is an R package that leverages AI and Large Language Models to extract
-#> and summarize insights from GitHub or GitLab repositories, enabling users to
-#> efficiently set project scopes, select relevant files, and process repository
-#> content in a tidyverse-friendly manner. 
+#> insights from GitHub or GitLab repositories, allowing users to define project
+#> scopes, select relevant content, and process repositories efficiently in a
+#> tidyverse-compliant manner. 
 #> 
-#> DataFakeR is an R package that enables users to generate synthetic data samples
-#> while maintaining predefined structural and relational attributes of the
-#> original data, facilitating experimental data simulation and testing.
+#> DataFakeR is an R package that enables users to generate synthetic datasets
+#> while maintaining specified assumptions about the original data structure,
+#> facilitating data simulation for testing and analysis.
 ```
 
 ## See also
