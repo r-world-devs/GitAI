@@ -49,12 +49,7 @@ test_that("setting LLM with non-default provider ", {
     chat_bedrock = chat_bedrock_mocked,
     .package = "ellmer"
   )
-  
-  # my_project <- my_project |> set_llm(provider = "bedrock")
-  # expect_in(
-  #   "ellmer::ProviderBedrock",
-  #   class(my_project$llm$.__enclos_env__$private$provider)
-  # )
+
 })
 
 test_that("setting LLM with non-existing provider ", {
