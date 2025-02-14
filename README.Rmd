@@ -29,7 +29,7 @@ platforms (like `GitHub` and `GitLab`).
 
 It is very difficult or even impossible to review all those repositories 
 manually, especially if one needs to perform an exploratory search, 
-not knowing the exact keywords that should be use.
+not knowing the exact keywords that should be used.
 
 Because of that the reusability of the knowledge (and code) hidden in the 
 repositories is a constant challenge.
