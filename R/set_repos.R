@@ -8,7 +8,7 @@
 #' @return A \code{GitAI} object.
 #' @export
 set_github_repos <- function(gitai,
-                             ... = ...,
+                             ...,
                              verbose = is_verbose()) {
   if (is.null(gitai$gitstats)) {
     gitstats <- GitStats::create_gitstats()
@@ -17,7 +17,7 @@ set_github_repos <- function(gitai,
   }
   gitai$gitstats <- gitstats |>
     GitStats::set_github_host(
-      ... = ...,
+      ...,
       verbose = verbose
     )
   invisible(gitai)
@@ -33,7 +33,7 @@ set_github_repos <- function(gitai,
 #' @return A \code{GitAI} object.
 #' @export
 set_gitlab_repos <- function(gitai,
-                             ... = ...,
+                             ...,
                              verbose = is_verbose()) {
   if (is.null(gitai$gitstats)) {
     gitstats <- GitStats::create_gitstats()
@@ -42,7 +42,7 @@ set_gitlab_repos <- function(gitai,
   }
   gitai$gitstats <- gitstats |>
     GitStats::set_gitlab_host(
-      ... = ...,
+      ...,
       verbose = verbose
     )
   invisible(gitai)
