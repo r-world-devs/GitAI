@@ -13,9 +13,9 @@ get_llm_defaults(provider)
 \item{gitai}{A \code{GitAI} object.}
 
 \item{provider}{Name of LLM provider, a string. Results with setting up LLM using
-\code{elmer::chat_<provider>} function.}
+\code{ellmer::chat_<provider>} function.}
 
-\item{...}{Other arguments to pass to corresponding \code{elmer::chat_<provider>} function.
+\item{...}{Other arguments to pass to corresponding \code{ellmer::chat_<provider>} function.
 Please use \link{get_llm_defaults} to get default model arguments.}
 }
 \value{

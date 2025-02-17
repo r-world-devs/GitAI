@@ -1,12 +1,12 @@
 Package: GitAI
 Title: Extracts Knowledge From Git Repositories
-Version: 0.0.0.9015
+Version: 0.0.0.9017
 Authors@R: c(
     person("Kamil", "Wais", , "kamil.wais@gmail.com", role = c("aut", "cre")),
     person("Krystian", "Igras", , "krystian8207@gmail.com", role = "aut"),
     person("Maciej", "Banas", , "banasmaciek@gmail.com", role = "aut")
   )
-Description: Scan multiple Git repositories, pull specified files content and process it with Large Language Models. You can summarize the content in specific way, extract information and data, or find answers to your questions about the repositories.
+Description: Scan multiple Git repositories, pull specified files content and process it with Large Language Models. You can summarize the content in specific way, extract information and data, or find answers to your questions about the repositories. The output can be stored in vector database and used for semantic search or as a part of a RAG (Retrieval Augmented Generation) prompt.
 License: MIT + file LICENSE
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
@@ -15,8 +15,8 @@ Depends:
     R (>= 4.1.0)
 Imports:
     cli (>= 3.4.0),
-    elmer,
-    GitStats,
+    ellmer,
+    GitStats (>= 2.2.0),
     httr2,
     lubridate,
     R6,
@@ -28,5 +28,9 @@ Imports:
 Suggests: 
     testthat (>= 3.0.0),
     shiny,
-    withr
+    shinychat,
+    withr,
+    knitr,
+    rmarkdown
 Config/testthat/edition: 3
+VignetteBuilder: knitr

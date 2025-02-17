@@ -8,6 +8,6 @@
 #' within file marked at '.Rbuildignore' file.
 missing_deps_note_fix <- function() {
   R6::R6Class
-  elmer::chat_ollama
+  ellmer::chat_ollama
   lubridate::as_datetime
 }

@@ -16,7 +16,6 @@ process_content <- function(gitai, content, max_words = 80000, verbose) {
   }
 
   llm_clone <- gitai$llm$clone(deep = TRUE)
-
   llm_clone$chat(content)
 
   turn <- llm_clone$last_turn("assistant")

@@ -114,7 +114,7 @@ Pinecone <- R6::R6Class(
         })
     },
 
-    list_record_IDs = function() {
+    list_record_ids = function() {
 
       pinecone_api_key <- Sys.getenv("PINECONE_API_KEY")
 
@@ -147,7 +147,7 @@ Pinecone <- R6::R6Class(
         has_next_page <- "pagination" %in% names(response_body)
       }
 
-      return(record_ids)
+      record_ids
     },
 
     purge_records = function(ids) {

@@ -136,7 +136,7 @@ PineconeMocked <- R6::R6Class(
         })
     },
 
-    list_record_IDs = function() {
+    list_record_ids = function() {
       pinecone_api_key <- Sys.getenv("PINECONE_API_KEY")
 
       url <- paste0("https://", private$.index_host)
@@ -153,7 +153,7 @@ PineconeMocked <- R6::R6Class(
         )
 
       response <- httr2::response_json(
-        body = test_fixtures[["list_record_IDs"]]
+        body = test_fixtures[["list_record_ids"]]
       )
 
       response_body <- httr2::resp_body_json(response)
@@ -261,7 +261,7 @@ test_fixtures[["read_record"]] <- list(
   "usage" = list("readUnits" = 1L)
 )
 
-test_fixtures[["list_record_IDs"]] <- list(
+test_fixtures[["list_record_ids"]] <- list(
   "vectors" = list(
     list(
       "id" = "project_1"
