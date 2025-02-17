@@ -16,7 +16,7 @@ knitr::opts_chunk$set(
 
 ## Demo App Specs
 
-In this vignette we show how to build a simple Shiny app with a chatbot, like
+In this vignette we show how to build a simple Shiny app with a chat bot, like
 this one: [GitAI-demo](https://kalimu.shinyapps.io/GitAI-demo/)
 
 ![](demoapp.gif)
@@ -150,7 +150,7 @@ we can use semantic search queries to find the results.
 As you can see for that we need to define only our project, database, and LLM.
 
 ```{r}
-library(GitAI)
+#| eval: false
 my_project <- initialize_project("gitai-demo") |>
   set_database(
     provider  = "Pinecone", 
@@ -169,6 +169,19 @@ my_project |>
         stringr::str_wrap(width = 80) |> 
         paste0("...")
     )) 
+#> DataFakeR is an R package designed to generate fake data for relational
+#> databases while preserving the structure and constraints of the original data.
+#> The package is particularly useful for developers and data scientists who need
+#> to create realistic datasets for testing, development, or demonstration purposes
+#> without exposing sensitive information. The current version, 0.1.3, includes
+#> several enhancements and bug fixes, making it a robust tool for data simulation.
+#> The core functionality of DataFakeR revolves around its ability to read a
+#> schema description in YAML format, which defines the structure of the database
+#> tables, including columns, data types, constraints, and relationships. Users can
+#> source this schema from an existing database or define it manually. The package
+#> supports various data types, including character, numeric, integer, logical,
+#> and date, allowing for a wide range of data generation scenarios. One of the
+#> standout features of DataFakeR is its support for determinist...
 ```
 
 ## Shiny chatbot with RAG
