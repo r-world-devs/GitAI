@@ -41,17 +41,6 @@ test_that("setting LLM with default provider ", {
   )
 })
 
-test_that("setting LLM with non-default provider ", {
-
-  my_project <- initialize_project("gitai_test_project")
-
-  testthat::local_mocked_bindings(
-    chat_bedrock = chat_bedrock_mocked,
-    .package = "ellmer"
-  )
-
-})
-
 test_that("setting LLM with non-existing provider ", {
   my_project <- initialize_project("gitai_test_project")
   expect_error(
