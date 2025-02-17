@@ -120,7 +120,7 @@ custom_function <- function(provider, req) {
       retry_on_failure = TRUE
     ) 
   
-  req|> 
+  req |> 
     httr2::req_perform() |> 
     httr2::resp_body_json()
 }
@@ -163,12 +163,12 @@ my_project |>
     "How can I create fake data based on SQL tables?", 
     top_k = 1
   ) |>
-    purrr::walk(~ cat(
-      .x$metadata$text |> 
-        stringr::str_sub(end = 1000) |> 
-        stringr::str_wrap(width = 80) |> 
-        paste0("...")
-    )) 
+  purrr::walk(~ cat(
+    .x$metadata$text |> 
+      stringr::str_sub(end = 1000) |> 
+      stringr::str_wrap(width = 80) |> 
+      paste0("...")
+  )) 
 #> DataFakeR is an R package designed to generate fake data for relational
 #> databases while preserving the structure and constraints of the original data.
 #> The package is particularly useful for developers and data scientists who need
