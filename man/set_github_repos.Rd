@@ -4,7 +4,7 @@
 \alias{set_github_repos}
 \title{Set GitHub repositories in \code{GitAI} object.}
 \usage{
-set_github_repos(gitai, ... = ..., verbose = is_verbose())
+set_github_repos(gitai, ..., verbose = is_verbose())
 }
 \arguments{
 \item{gitai}{A \code{GitAI} object.}
