@@ -1,5 +1,5 @@
 Package: GitAI
-Title: Extracts Knowledge From Git Repositories
+Title: Extracts Knowledge from Git Repositories
 Version: 0.1.0
 Authors@R: c(
     person("Kamil", "Wais", , "kamil.wais@gmail.com", role = c("aut", "cre")),
