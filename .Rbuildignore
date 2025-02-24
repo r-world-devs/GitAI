@@ -13,3 +13,5 @@
 ^docs$
 ^pkgdown$
 ^.lintr
+^cran-comments\.md$
+^CRAN-SUBMISSION$
