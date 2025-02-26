@@ -3,7 +3,7 @@ pkgdown: 2.1.1
 pkgdown_sha: ~
 articles:
   building-shiny-app-chatbot: building-shiny-app-chatbot.html
-last_built: 2025-02-24T14:03Z
+last_built: 2025-02-26T07:25Z
 urls:
   reference: https://r-world-devs.github.io/GitAI/reference
   article: https://r-world-devs.github.io/GitAI/articles
