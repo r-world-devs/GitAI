@@ -21,9 +21,11 @@ mock_chat_method <- function(turns = NULL,
                              provider_class) {
 
   provider_args <- rlang::dots_list(...)
-  provider <- rlang::exec(provider_class, !!!provider_args)
+  provider <- rlang::exec(provider_class, name = "mock", !!!provider_args)
 
-  ChatMocked$new(provider = provider, turns = turns, echo = echo)
+  chat <- ChatMocked$new(provider = provider, echo = echo)
+  chat$set_turns(turns)
+  chat
 }
 
 chat_openai_mocked <- function(system_prompt = NULL,
