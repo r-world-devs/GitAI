@@ -66,7 +66,7 @@ jobs:
           use-public-rspm: true
 
       - name: Set R options
-        run: echo "options(install.packages.check.source = 'no')" >> ~/.Rprofile
+        run: echo "options(install.packages.compile.from.source = 'never')" >> ~/.Rprofile
 
       - uses: r-lib/actions/setup-renv@v2
 
