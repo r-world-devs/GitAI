@@ -65,7 +65,14 @@ jobs:
       - name: Install system dependencies (Windows)
         if: runner.os == 'Windows'
         run: |
-          choco install -y pkgconfiglite --pre || (type C:\ProgramData\chocolatey\logs\chocolatey.log && exit 1)
+          choco upgrade chocolatey
+          choco install -y pkgconfiglite --pre --ignore-checksums || (
+              sleep 10 &&
+              choco install -y pkgconfiglite --pre --ignore-checksums || (
+                  type C:\ProgramData\chocolatey\logs\chocolatey.log &&
+                  exit 1
+              )
+          )
           choco upgrade gcc mingw
 
       - uses: r-lib/actions/setup-r@v2
