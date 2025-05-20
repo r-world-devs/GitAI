@@ -74,7 +74,7 @@ jobs:
           use-public-rspm: true
 
       - name: Install dependencies
-        run: Rscript -e 'install.packages(c("renv", "stringi"), repos = "https://cloud.r-project.org")'
+        run: Rscript -e 'install.packages(c("renv", "stringi", "jsonlite"), repos = "https://cloud.r-project.org")'
 
       - name: Restore R environment
         run: Rscript -e 'renv::restore()'
