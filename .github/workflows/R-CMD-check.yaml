@@ -65,6 +65,9 @@ jobs:
           http-user-agent: ${{ matrix.config.http-user-agent }}
           use-public-rspm: true
 
+      - name: Set R options
+        run: echo "options(install.packages.check.source = 'no')" >> ~/.Rprofile
+
       - uses: r-lib/actions/setup-renv@v2
 
       - name: Install extra R dependencies
