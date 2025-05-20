@@ -28,6 +28,9 @@ jobs:
           sudo apt-get update && sudo apt-get install -y \
             libfontconfig1-dev \
             libfreetype6-dev \
+            libpng-dev \
+            libtiff5-dev \
+            libjpeg-dev \
             libharfbuzz-dev \
             libfribidi-dev \
             pkg-config
