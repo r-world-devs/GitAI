@@ -27,7 +27,10 @@ jobs:
           sudo add-apt-repository universe
           sudo apt-get update && sudo apt-get install -y \
             libfontconfig1-dev \
-            libfreetype6-dev
+            libfreetype6-dev \
+            libharfbuzz-dev \
+            libfribidi-dev \
+            pkg-config
 
       - name: Set up R
         uses: r-lib/actions/setup-r@v2
