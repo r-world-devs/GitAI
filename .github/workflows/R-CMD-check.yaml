@@ -52,6 +52,7 @@ jobs:
         if: runner.os == 'macOS'
         run: |
           brew update
+          brew upgrade
           brew install fontconfig freetype libpng libtiff jpeg harfbuzz fribidi pkg-config
 
       - name: Install system dependencies (Windows)
