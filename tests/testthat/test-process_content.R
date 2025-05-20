@@ -13,11 +13,13 @@ test_that("processing content have proper output structure", {
 })
 
 test_that("processing a single file content with deterministic output", {
-
+  skip_on_cran()
+  skip_if_not(interactive())
+  params <- ellmer::params(seed = 1014)
   my_project <- initialize_project("gitai_test_project") |>
-    set_llm(seed = 1014, api_args = list(temperature = 0)) |>
+    set_llm(params = params, api_args = list(temperature = 0)) |>
     set_prompt(system_prompt = "Summarize provided conent with one, short sentence.")
-  
+
   test_content <- r"(
     Artificial intelligence (AI) plays a crucial role in transforming industries
     by automating repetitive tasks and enhancing productivity. It enables personalized experiences
