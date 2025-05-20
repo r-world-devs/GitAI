@@ -65,8 +65,11 @@ jobs:
           http-user-agent: ${{ matrix.config.http-user-agent }}
           use-public-rspm: true
 
-      - name: Set R options
-        run: echo "options(install.packages.compile.from.source = 'never')" >> ~/.Rprofile
+      - name: Install dependencies
+        run: Rscript -e 'install.packages(c("renv", "stringi"), repos = "https://cloud.r-project.org")'
+
+      - name: Restore R environment
+        run: Rscript -e 'renv::restore()'
 
       - uses: r-lib/actions/setup-renv@v2
 
