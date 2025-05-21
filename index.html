@@ -23,7 +23,7 @@
 
     <a class="navbar-brand me-2" href="index.html">GitAI</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.1.0</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.1.1</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -39,6 +39,7 @@
 <li><a class="dropdown-item" href="articles/building-shiny-app-chatbot.html">Building simple Shiny app with a chatbot</a></li>
   </ul>
 </li>
+<li class="nav-item"><a class="nav-link" href="news/index.html">Changelog</a></li>
       </ul>
 <ul class="navbar-nav">
 <li class="nav-item"><form class="form-inline" role="search">
@@ -127,7 +128,14 @@
 <span>  <span class="op">)</span> <span class="op">|&gt;</span></span>
 <span>  <span class="fu"><a href="reference/add_files.html">add_files</a></span><span class="op">(</span>files <span class="op">=</span> <span class="st">"README.md"</span><span class="op">)</span> <span class="op">|&gt;</span></span>
 <span>  <span class="fu"><a href="reference/set_llm.html">set_llm</a></span><span class="op">(</span><span class="op">)</span> <span class="op">|&gt;</span></span>
-<span>  <span class="fu"><a href="reference/set_prompt.html">set_prompt</a></span><span class="op">(</span><span class="st">"Write one-sentence summary for a project based on given input."</span><span class="op">)</span></span></code></pre></div>
+<span>  <span class="fu"><a href="reference/set_prompt.html">set_prompt</a></span><span class="op">(</span><span class="st">"Write one-sentence summary for a project based on given input."</span><span class="op">)</span></span>
+<span><span class="co">#&gt; Warning: The `seed` argument of `chat_openai()` is deprecated as of ellmer 0.2.0.</span></span>
+<span><span class="co">#&gt; ℹ Please use the `params` argument instead.</span></span>
+<span><span class="co">#&gt; ℹ The deprecated feature was likely used in the GitAI package.</span></span>
+<span><span class="co">#&gt;   Please report the issue to the authors.</span></span>
+<span><span class="co">#&gt; This warning is displayed once every 8 hours.</span></span>
+<span><span class="co">#&gt; Call `lifecycle::last_lifecycle_warnings()` to see where this warning was</span></span>
+<span><span class="co">#&gt; generated.</span></span></code></pre></div>
 <p>Now, let’s get the results and print them.</p>
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">results</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/process_repos.html">process_repos</a></span><span class="op">(</span><span class="va">my_project</span><span class="op">)</span></span>
@@ -135,18 +143,19 @@
 <span><span class="fu">purrr</span><span class="fu">::</span><span class="fu"><a href="https://purrr.tidyverse.org/reference/map.html" class="external-link">walk</a></span><span class="op">(</span><span class="va">results</span>, <span class="kw">function</span><span class="op">(</span><span class="va">result</span><span class="op">)</span> <span class="op">{</span></span>
 <span>  <span class="va">result</span><span class="op">$</span><span class="va">text</span> <span class="op">|&gt;</span> <span class="fu">stringr</span><span class="fu">::</span><span class="fu"><a href="https://stringr.tidyverse.org/reference/str_wrap.html" class="external-link">str_wrap</a></span><span class="op">(</span>width <span class="op">=</span> <span class="fl">80</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu"><a href="https://rdrr.io/r/base/cat.html" class="external-link">cat</a></span><span class="op">(</span><span class="st">"\n\n"</span><span class="op">)</span></span>
 <span><span class="op">}</span><span class="op">)</span></span>
-<span><span class="co">#&gt; GitStats is an experimental R package that facilitates the extraction</span></span>
-<span><span class="co">#&gt; and analysis of git data from GitHub and GitLab, providing insights into</span></span>
-<span><span class="co">#&gt; repositories, commits, users, and R package usage in a structured format. </span></span>
+<span><span class="co">#&gt; GitStats is an R package that allows users to uniformly extract and analyze</span></span>
+<span><span class="co">#&gt; git data from GitHub and GitLab, including repositories, commits, issues, and</span></span>
+<span><span class="co">#&gt; R package usage, enabling the generation of basic statistics and insights into</span></span>
+<span><span class="co">#&gt; version control activities. </span></span>
 <span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; GitAI is an R package that leverages AI and Large Language Models to extract</span></span>
-<span><span class="co">#&gt; insights from GitHub or GitLab repositories, allowing users to define project</span></span>
-<span><span class="co">#&gt; scopes, select relevant content, and process repositories efficiently in a</span></span>
-<span><span class="co">#&gt; tidyverse-compliant manner. </span></span>
+<span><span class="co">#&gt; `GitAI` is an R-based framework designed to harness AI and Large Language</span></span>
+<span><span class="co">#&gt; Models for extracting and summarizing knowledge from multiple Git repositories</span></span>
+<span><span class="co">#&gt; efficiently, addressing the challenges of manual review and knowledge</span></span>
+<span><span class="co">#&gt; reusability in large organizations. </span></span>
 <span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; DataFakeR is an R package that enables users to generate synthetic datasets</span></span>
-<span><span class="co">#&gt; while maintaining specified assumptions about the original data structure,</span></span>
-<span><span class="co">#&gt; facilitating data simulation for testing and analysis.</span></span></code></pre></div>
+<span><span class="co">#&gt; DataFakeR is an R package that enables users to generate realistic fake datasets</span></span>
+<span><span class="co">#&gt; while preserving specific attributes and dependencies based on a configurable</span></span>
+<span><span class="co">#&gt; schema, facilitating data simulation for testing and validation purposes.</span></span></code></pre></div>
 </div>
 <div class="section level2">
 <h2 id="see-also">See also<a class="anchor" aria-label="anchor" href="#see-also"></a>
@@ -180,9 +189,9 @@
 <div class="developers">
 <h2 data-toc-skip>Developers</h2>
 <ul class="list-unstyled">
-<li>Kamil Wais <br><small class="roles"> Author, maintainer </small>  </li>
-<li>Krystian Igras <br><small class="roles"> Author </small>  </li>
-<li>Maciej Banas <br><small class="roles"> Author </small>  </li>
+<li>Kamil Wais <br><small class="roles"> Author, maintainer </small>   </li>
+<li>Krystian Igras <br><small class="roles"> Author </small>   </li>
+<li>Maciej Banas <br><small class="roles"> Author </small>   </li>
 </ul>
 </div>
 
@@ -190,6 +199,7 @@
 <h2 data-toc-skip>Dev status</h2>
 <ul class="list-unstyled">
 <li><a href="https://app.codecov.io/gh/r-world-devs/GitAI" class="external-link"><img src="https://codecov.io/gh/r-world-devs/GitAI/graph/badge.svg" alt="Codecov test coverage"></a></li>
+<li><a href="https://github.com/r-world-devs/GitAI/actions/workflows/R-CMD-check.yaml" class="external-link"><img src="https://github.com/r-world-devs/GitAI/actions/workflows/R-CMD-check.yaml/badge.svg" alt="R-CMD-check"></a></li>
 </ul>
 </div>
 
@@ -202,7 +212,7 @@
 </div>
 
 <div class="pkgdown-footer-right">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.1.1.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.1.2.</p>
 </div>
 
     </footer>
