@@ -21,9 +21,11 @@ mock_chat_method <- function(turns = NULL,
                              provider_class) {
 
   provider_args <- rlang::dots_list(...)
-  provider <- rlang::exec(provider_class, !!!provider_args)
+  provider <- rlang::exec(provider_class, name = "mock", !!!provider_args)
 
-  ChatMocked$new(provider = provider, turns = turns, echo = echo)
+  chat <- ChatMocked$new(provider = provider, echo = echo)
+  chat$set_turns(turns)
+  chat
 }
 
 chat_openai_mocked <- function(system_prompt = NULL,
@@ -32,6 +34,7 @@ chat_openai_mocked <- function(system_prompt = NULL,
                                api_key = "mocked_key",
                                model = NULL,
                                seed = NULL,
+                               params = NULL,
                                api_args = list(),
                                echo = c("none", "text", "all")) {
 
@@ -39,8 +42,9 @@ chat_openai_mocked <- function(system_prompt = NULL,
   model <- ellmer:::set_default(model, "gpt-4o")
   echo <- ellmer:::check_echo(echo)
 
+  params <- params %||% ellmer::params()
   if (is.null(seed)) {
-    seed <- 1014
+    params$seed <- 1014
   }
 
   mock_chat_method(
@@ -48,7 +52,7 @@ chat_openai_mocked <- function(system_prompt = NULL,
     echo = echo,
     base_url = base_url,
     model = model,
-    seed = seed,
+    params = params,
     extra_args = api_args,
     api_key = api_key,
     provider_class = ellmer:::ProviderOpenAI

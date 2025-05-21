@@ -25,8 +25,8 @@ set_llm <- function(gitai, provider = "openai", ...) {
 }
 
 llm_default_args <- list(
-  openai = list(model = "gpt-4o-mini", seed = NULL, echo = "none"),
-  ollama = list(model = "llama3.2", seed = NULL),
+  openai = list(model = "gpt-4o-mini", params = NULL, echo = "none"),
+  ollama = list(model = "llama3.2", params = NULL),
   bedrock = list(model = "anthropic.claude-3-5-sonnet-20240620-v1:0")
 )
 

@@ -7,6 +7,7 @@
 
 [![Codecov test
 coverage](https://codecov.io/gh/r-world-devs/GitAI/graph/badge.svg)](https://app.codecov.io/gh/r-world-devs/GitAI)
+[![R-CMD-check](https://github.com/r-world-devs/GitAI/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/r-world-devs/GitAI/actions/workflows/R-CMD-check.yaml)
 <!-- badges: end -->
 
 > The goal of `GitAI` is to **extract knowledge from Git repositories**
@@ -89,6 +90,13 @@ my_project <- initialize_project("fascinating_project") |>
   add_files(files = "README.md") |>
   set_llm() |>
   set_prompt("Write one-sentence summary for a project based on given input.")
+#> Warning: The `seed` argument of `chat_openai()` is deprecated as of ellmer 0.2.0.
+#> ℹ Please use the `params` argument instead.
+#> ℹ The deprecated feature was likely used in the GitAI package.
+#>   Please report the issue to the authors.
+#> This warning is displayed once every 8 hours.
+#> Call `lifecycle::last_lifecycle_warnings()` to see where this warning was
+#> generated.
 ```
 
 Now, let’s get the results and print them.
@@ -99,18 +107,19 @@ results <- process_repos(my_project)
 purrr::walk(results, function(result) {
   result$text |> stringr::str_wrap(width = 80) |> cat("\n\n")
 })
-#> GitStats is an experimental R package that facilitates the extraction
-#> and analysis of git data from GitHub and GitLab, providing insights into
-#> repositories, commits, users, and R package usage in a structured format. 
+#> GitStats is an R package that allows users to uniformly extract and analyze
+#> git data from GitHub and GitLab, including repositories, commits, issues, and
+#> R package usage, enabling the generation of basic statistics and insights into
+#> version control activities. 
 #> 
-#> GitAI is an R package that leverages AI and Large Language Models to extract
-#> insights from GitHub or GitLab repositories, allowing users to define project
-#> scopes, select relevant content, and process repositories efficiently in a
-#> tidyverse-compliant manner. 
+#> `GitAI` is an R-based framework designed to harness AI and Large Language
+#> Models for extracting and summarizing knowledge from multiple Git repositories
+#> efficiently, addressing the challenges of manual review and knowledge
+#> reusability in large organizations. 
 #> 
-#> DataFakeR is an R package that enables users to generate synthetic datasets
-#> while maintaining specified assumptions about the original data structure,
-#> facilitating data simulation for testing and analysis.
+#> DataFakeR is an R package that enables users to generate realistic fake datasets
+#> while preserving specific attributes and dependencies based on a configurable
+#> schema, facilitating data simulation for testing and validation purposes.
 ```
 
 ## See also
