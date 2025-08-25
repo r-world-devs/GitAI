@@ -1,3 +1,7 @@
+# GitAI 0.1.2
+
+* Added GitHub URL to `DESCRIPTION`.
+
 # GitAI 0.1.1
 
 * Fixed tests to make them work with `ellmer` 0.2.0. 
