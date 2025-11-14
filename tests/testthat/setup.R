@@ -54,7 +54,7 @@ chat_openai_mocked <- function(system_prompt = NULL,
     model = model,
     params = params,
     extra_args = api_args,
-    api_key = api_key,
+    credentials = function() api_key,
     provider_class = ellmer:::ProviderOpenAI
   )
 }

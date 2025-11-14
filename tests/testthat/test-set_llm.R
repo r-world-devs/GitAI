@@ -60,7 +60,7 @@ test_that("setting arguments for selected provider ", {
   my_project <- my_project |>
     set_llm(provider = "openai", model = "model_mocked")
   expect_equal(
-    my_project$llm$.__enclos_env__$private$provider@model,
+    my_project$llm$get_provider()@model,
     "model_mocked"
   )
 
@@ -68,7 +68,7 @@ test_that("setting arguments for selected provider ", {
   my_project <- my_project |>
     set_llm(provider = "openai", api_key = "api_key_mocked")
   expect_equal(
-    my_project$llm$.__enclos_env__$private$provider@api_key,
+    my_project$llm$get_provider()@credentials(),
     "api_key_mocked"
   )
 
@@ -76,6 +76,7 @@ test_that("setting arguments for selected provider ", {
   my_project <- my_project |>
     set_llm(provider = "openai", echo = "all")
   expect_equal(
+    # Please don't reach into the private namespace of external R6 classes
     my_project$llm$.__enclos_env__$private$echo,
     "all"
   )
