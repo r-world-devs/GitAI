@@ -74,14 +74,6 @@ test_that("setting arguments for selected provider ", {
     "api_key_mocked"
   )
 
-  # Chat-related, non-default argument (not included within `llm_default_args`) is properly set
-  my_project <- my_project |>
-    set_llm(provider = "openai", echo = "all")
-  expect_equal(
-    # Please don't reach into the private namespace of external R6 classes
-    my_project$llm$.__enclos_env__$private$echo,
-    "all"
-  )
 })
 
 test_that("setting LLM without system prompt", {
