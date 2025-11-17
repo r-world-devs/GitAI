@@ -1,3 +1,8 @@
+# GitAI (development version)
+
+* Fixes for CRAN.
+* Adjust to new `ellmer` release (`0.4.0`).
+
 # GitAI 0.1.2
 
 * Added GitHub URL to `DESCRIPTION`.
