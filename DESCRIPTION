@@ -16,7 +16,7 @@ Depends:
     R (>= 4.1.0)
 Imports:
     cli (>= 3.4.0),
-    ellmer,
+    ellmer (>= 0.4.0),
     GitStats (>= 2.2.0),
     httr2,
     lubridate,

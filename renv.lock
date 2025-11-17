@@ -63,14 +63,14 @@
     },
     "S7": {
       "Package": "S7",
-      "Version": "0.2.0",
+      "Version": "0.2.1",
       "Source": "Repository",
       "Repository": "CRAN",
       "Requirements": [
         "R",
         "utils"
       ],
-      "Hash": "5deb66b3ae702137e1f4162c11861e76"
+      "Hash": "9da85950949574264f92f91f0e23de26"
     },
     "askpass": {
       "Package": "askpass",
@@ -293,13 +293,9 @@
     },
     "ellmer": {
       "Package": "ellmer",
-      "Version": "0.3.2.9000",
-      "Source": "GitHub",
-      "RemoteType": "github",
-      "RemoteHost": "api.github.com",
-      "RemoteRepo": "ellmer",
-      "RemoteUsername": "tidyverse",
-      "RemoteSha": "13af6c408076a7e59ca3f34bc85ceb5d0f736709",
+      "Version": "0.4.0",
+      "Source": "Repository",
+      "Repository": "CRAN",
       "Requirements": [
         "R",
         "R6",
@@ -316,7 +312,7 @@
         "tibble",
         "vctrs"
       ],
-      "Hash": "6a71d636d543f1508437fa258d1ddeca"
+      "Hash": "c251e14722bdfbe83b1b5c442d835064"
     },
     "evaluate": {
       "Package": "evaluate",
