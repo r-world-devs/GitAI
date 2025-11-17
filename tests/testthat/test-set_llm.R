@@ -19,7 +19,7 @@ test_that("setting system prompt", {
     my_project$llm$get_system_prompt(),
     "You always return only 'Hi there!'"
   )
-  expect_equal(
+  expect_equal_to_reference(
     my_project$llm$chat("Hi"),
     "Hi there!"
   )
