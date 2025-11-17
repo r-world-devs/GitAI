@@ -37,7 +37,7 @@ test_that("setting LLM with default provider ", {
   expect_true("Chat" %in% class(my_project$llm))
   expect_in(
     "ellmer::ProviderOpenAI",
-    class(my_project$llm$.__enclos_env__$private$provider)
+    class(my_project$llm$get_provider())
   )
 })
 
@@ -60,7 +60,7 @@ test_that("setting arguments for selected provider ", {
   my_project <- my_project |>
     set_llm(provider = "openai", model = "model_mocked")
   expect_equal(
-    my_project$llm$get_provider()@model,
+    my_project$llm$get_model(),
     "model_mocked"
   )
 
