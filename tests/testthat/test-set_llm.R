@@ -7,6 +7,8 @@ test_that("setting LLM ", {
 })
 
 test_that("setting system prompt", {
+  skip_on_cran()
+  skip_if_not(interactive())
   my_project <- initialize_project("gitai_test_project")
   expect_error(
     my_project |> set_prompt(system_prompt = "You always return only 'Hi there!'")
