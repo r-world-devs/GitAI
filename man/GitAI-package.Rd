@@ -10,6 +10,13 @@
 
 Scan multiple 'Git' repositories, pull specified files content and process it with large language models. You can summarize the content in specific way, extract information and data, or find answers to your questions about the repositories. The output can be stored in vector database and used for semantic search or as a part of a RAG (Retrieval Augmented Generation) prompt.
 }
+\seealso{
+Useful links:
+\itemize{
+  \item \url{https://github.com/r-world-devs/GitAI}
+}
+
+}
 \author{
 \strong{Maintainer}: Kamil Wais \email{kamil.wais@gmail.com}
 
