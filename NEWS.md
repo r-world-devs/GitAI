@@ -1,4 +1,4 @@
-# GitAI (development version)
+# GitAI 0.1.3
 
 * Fixes for CRAN.
 * Adjust to new `ellmer` release (`0.4.0`).
