@@ -11,7 +11,7 @@
 ## Citation
 
 Source:
-[`DESCRIPTION`](https://github.com/r-world-devs/GitAI/blob/main/DESCRIPTION)
+[`DESCRIPTION`](https://github.com/r-world-devs/GitAI/blob/v0.1.3/DESCRIPTION)
 
 Wais K, Igras K, Banas M (2025). *GitAI: Extracts Knowledge from 'Git'
 Repositories*. R package version 0.1.3,
