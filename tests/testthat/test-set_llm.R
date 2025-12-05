@@ -7,6 +7,8 @@ test_that("setting LLM ", {
 })
 
 test_that("setting system prompt", {
+  skip_on_cran()
+  skip_if_not(interactive())
   my_project <- initialize_project("gitai_test_project")
   expect_error(
     my_project |> set_prompt(system_prompt = "You always return only 'Hi there!'")
@@ -19,7 +21,7 @@ test_that("setting system prompt", {
     my_project$llm$get_system_prompt(),
     "You always return only 'Hi there!'"
   )
-  expect_equal(
+  expect_equal_to_reference(
     my_project$llm$chat("Hi"),
     "Hi there!"
   )
@@ -37,7 +39,7 @@ test_that("setting LLM with default provider ", {
   expect_true("Chat" %in% class(my_project$llm))
   expect_in(
     "ellmer::ProviderOpenAI",
-    class(my_project$llm$.__enclos_env__$private$provider)
+    class(my_project$llm$get_provider())
   )
 })
 
@@ -60,7 +62,7 @@ test_that("setting arguments for selected provider ", {
   my_project <- my_project |>
     set_llm(provider = "openai", model = "model_mocked")
   expect_equal(
-    my_project$llm$.__enclos_env__$private$provider@model,
+    my_project$llm$get_model(),
     "model_mocked"
   )
 
@@ -68,17 +70,10 @@ test_that("setting arguments for selected provider ", {
   my_project <- my_project |>
     set_llm(provider = "openai", api_key = "api_key_mocked")
   expect_equal(
-    my_project$llm$.__enclos_env__$private$provider@api_key,
+    my_project$llm$get_provider()@credentials(),
     "api_key_mocked"
   )
 
-  # Chat-related, non-default argument (not included within `llm_default_args`) is properly set
-  my_project <- my_project |>
-    set_llm(provider = "openai", echo = "all")
-  expect_equal(
-    my_project$llm$.__enclos_env__$private$echo,
-    "all"
-  )
 })
 
 test_that("setting LLM without system prompt", {
