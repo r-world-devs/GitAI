@@ -64,14 +64,14 @@
     },
     "S7": {
       "Package": "S7",
-      "Version": "0.2.1",
+      "Version": "0.2.2",
       "Source": "Repository",
       "Repository": "CRAN",
       "Requirements": [
         "R",
         "utils"
       ],
-      "Hash": "9da85950949574264f92f91f0e23de26"
+      "Hash": "6a72e94a8c9be4ef719af3aa3628f2dc"
     },
     "askpass": {
       "Package": "askpass",
