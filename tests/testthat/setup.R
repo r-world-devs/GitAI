@@ -1,5 +1,17 @@
 test_mocker <- Mocker$new()
 
+skip_if_no_llm_testing <- function() {
+  enabled <- tolower(Sys.getenv("GITAI_RUN_LLM_TESTS")) %in% c("1", "true")
+  has_openai_key <- nzchar(Sys.getenv("OPENAI_API_KEY"))
+  testthat::skip_if_not(
+    enabled && has_openai_key,
+    paste(
+      "Set GITAI_RUN_LLM_TESTS=true and OPENAI_API_KEY to run",
+      "tests that call an LLM provider."
+    )
+  )
+}
+
 # Override other methods when needed in the future
 ChatMocked <- R6::R6Class(
   "ChatMocked",

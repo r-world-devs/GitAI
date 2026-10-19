@@ -1,5 +1,6 @@
 test_that("process_repos() returns results with repo metadata", {
   testthat::skip_on_cran()
+  skip_if_no_llm_testing()
   withr::local_envvar(GITAI_VERBOSE = FALSE)
 
   my_project <- initialize_project("gitai_test_project") |>
