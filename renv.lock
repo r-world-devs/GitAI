@@ -201,13 +201,13 @@
     },
     "curl": {
       "Package": "curl",
-      "Version": "7.0.0",
+      "Version": "8.1.0",
       "Source": "Repository",
       "Repository": "CRAN",
       "Requirements": [
         "R"
       ],
-      "Hash": "aa27e963d3deccf4bade44d06b976977"
+      "Hash": "5a22716bc6f334da984e0aace1eb8222"
     },
     "desc": {
       "Package": "desc",
