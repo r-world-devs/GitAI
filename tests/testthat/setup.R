@@ -31,7 +31,7 @@ ChatMocked <- R6::R6Class(
   public = list(
     chat = function(..., echo = NULL) {
       if (self$get_system_prompt() == "You always return only 'Hi there!'") {
-        return("Hi there!")
+        "Hi there!"
       }
     }
   )
@@ -54,7 +54,7 @@ mock_chat_method <- function(turns = NULL,
     chat <- ChatMocked$new(provider = provider, model = model, echo = echo)
   } else {
     provider <- rlang::exec(provider_class, name = "mock", model = model,
-                           params = params, extra_args = extra_args, !!!provider_args)
+                            params = params, extra_args = extra_args, !!!provider_args)
     chat <- ChatMocked$new(provider = provider, echo = echo)
   }
 

@@ -1,6 +1,7 @@
-# GitAI (development version)
+# GitAI 0.1.4
 
 * Updates for compatibility with S7 > 0.2.2.
+* Updates the development dependency stack for current R releases.
 
 # GitAI 0.1.3
 
