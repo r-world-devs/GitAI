@@ -294,7 +294,7 @@
     },
     "ellmer": {
       "Package": "ellmer",
-      "Version": "0.4.0",
+      "Version": "0.5.0",
       "Source": "Repository",
       "Repository": "CRAN",
       "Requirements": [
@@ -313,7 +313,7 @@
         "tibble",
         "vctrs"
       ],
-      "Hash": "c251e14722bdfbe83b1b5c442d835064"
+      "Hash": "8b4ed06667804a757dedabbbde76cdc9"
     },
     "evaluate": {
       "Package": "evaluate",
