@@ -12,6 +12,18 @@ skip_if_no_llm_testing <- function() {
   )
 }
 
+skip_if_no_remote_testing <- function() {
+  enabled <- tolower(Sys.getenv("GITAI_RUN_REMOTE_TESTS")) %in% c("1", "true")
+  has_github_token <- nzchar(Sys.getenv("GITHUB_PAT"))
+  testthat::skip_if_not(
+    enabled && has_github_token,
+    paste(
+      "Set GITAI_RUN_REMOTE_TESTS=true and GITHUB_PAT to run tests",
+      "that call remote Git providers."
+    )
+  )
+}
+
 # Override other methods when needed in the future
 ChatMocked <- R6::R6Class(
   "ChatMocked",
