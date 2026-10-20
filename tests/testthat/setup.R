@@ -51,12 +51,13 @@ mock_chat_method <- function(turns = NULL,
   if (utils::packageVersion("ellmer") >= "0.5.0") {
     model <- ellmer::Model(name = model, params = params, extra_args = extra_args)
     provider <- rlang::exec(provider_class, name = "mock", !!!provider_args)
+    chat <- ChatMocked$new(provider = provider, model = model, echo = echo)
   } else {
     provider <- rlang::exec(provider_class, name = "mock", model = model,
                            params = params, extra_args = extra_args, !!!provider_args)
+    chat <- ChatMocked$new(provider = provider, echo = echo)
   }
 
-  chat <- ChatMocked$new(provider = provider, model = model, echo = echo)
   chat$set_turns(turns)
   chat
 }
