@@ -7,7 +7,6 @@ linters: linters_with_defaults(
   object_name_linter = object_name_linter(
     styles = c("snake_case", "CamelCase", "symbols"),
     regexes = character()
-    ),
-  cyclocomp_linter = NULL
+    )
   )
 encoding: "UTF-8"

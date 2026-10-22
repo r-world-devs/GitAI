@@ -1,5 +1,6 @@
 test_that("set_*_repos creates GitStats object inside GitAI with repos set", {
   testthat::skip_on_cran()
+  skip_if_no_remote_testing()
   withr::local_envvar(GITAI_VERBOSE = FALSE)
   my_project <- initialize_project("gitai_test_project")
 
