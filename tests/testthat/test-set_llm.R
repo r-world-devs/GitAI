@@ -70,7 +70,7 @@ test_that("setting arguments for selected provider ", {
   my_project <- my_project |>
     set_llm(provider = "openai", api_key = "api_key_mocked")
   expect_equal(
-    my_project$llm$get_provider()@credentials(),
+    S7::prop(my_project$llm$get_provider(), "credentials")(),
     "api_key_mocked"
   )
 
