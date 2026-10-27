@@ -1,5 +1,29 @@
 test_mocker <- Mocker$new()
 
+skip_if_no_llm_testing <- function() {
+  enabled <- tolower(Sys.getenv("GITAI_RUN_LLM_TESTS")) %in% c("1", "true")
+  has_openai_key <- nzchar(Sys.getenv("OPENAI_API_KEY"))
+  testthat::skip_if_not(
+    enabled && has_openai_key,
+    paste(
+      "Set GITAI_RUN_LLM_TESTS=true and OPENAI_API_KEY to run",
+      "tests that call an LLM provider."
+    )
+  )
+}
+
+skip_if_no_remote_testing <- function() {
+  enabled <- tolower(Sys.getenv("GITAI_RUN_REMOTE_TESTS")) %in% c("1", "true")
+  has_github_token <- nzchar(Sys.getenv("GITHUB_PAT"))
+  testthat::skip_if_not(
+    enabled && has_github_token,
+    paste(
+      "Set GITAI_RUN_REMOTE_TESTS=true and GITHUB_PAT to run tests",
+      "that call remote Git providers."
+    )
+  )
+}
+
 # Override other methods when needed in the future
 ChatMocked <- R6::R6Class(
   "ChatMocked",
@@ -7,7 +31,7 @@ ChatMocked <- R6::R6Class(
   public = list(
     chat = function(..., echo = NULL) {
       if (self$get_system_prompt() == "You always return only 'Hi there!'") {
-        return("Hi there!")
+        "Hi there!"
       }
     }
   )
@@ -17,13 +41,23 @@ ChatMocked <- R6::R6Class(
 # object of class ChatMocked that we can modify for our testing purposes.
 mock_chat_method <- function(turns = NULL,
                              echo = c("none", "text", "all"),
+                             model,
+                             params = NULL,
+                             extra_args = list(),
                              ...,
                              provider_class) {
 
   provider_args <- rlang::dots_list(...)
-  provider <- rlang::exec(provider_class, name = "mock", !!!provider_args)
+  if (utils::packageVersion("ellmer") >= "0.5.0") {
+    model <- ellmer::Model(name = model, params = params, extra_args = extra_args)
+    provider <- rlang::exec(provider_class, name = "mock", !!!provider_args)
+    chat <- ChatMocked$new(provider = provider, model = model, echo = echo)
+  } else {
+    provider <- rlang::exec(provider_class, name = "mock", model = model,
+                            params = params, extra_args = extra_args, !!!provider_args)
+    chat <- ChatMocked$new(provider = provider, echo = echo)
+  }
 
-  chat <- ChatMocked$new(provider = provider, echo = echo)
   chat$set_turns(turns)
   chat
 }

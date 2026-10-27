@@ -1,4 +1,5 @@
 test_that("processing content have proper output structure", {
+  skip_if_no_llm_testing()
 
   my_project <- initialize_project("gitai_test_project") |>
     set_llm() |>
@@ -15,6 +16,7 @@ test_that("processing content have proper output structure", {
 test_that("processing a single file content with deterministic output", {
   skip_on_cran()
   skip_if_not(interactive())
+  skip_if_no_llm_testing()
   params <- ellmer::params(seed = 1014)
   my_project <- initialize_project("gitai_test_project") |>
     set_llm(params = params, api_args = list(temperature = 0)) |>
